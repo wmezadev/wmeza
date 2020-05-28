@@ -6,28 +6,28 @@ import dark from './dark.png';
 import light from './light.png';
 import withThemeFlag from '../../../utils/withThemeFlag';
 
-function Facebook({ username, size, isLightTheme }) {
+function Linkedin({ username, size, isLightTheme }) {
   if (!username) return null;
 
   return (
     <RotateLinkImg
-      href={`https://facebook.com/${username}`}
+      href={`https://linkedin.com/in/${username}`}
       src={isLightTheme ? dark : light}
       size={size}
     />
   );
 }
 
-Facebook.propTypes = {
+Linkedin.propTypes = {
   username: PropTypes.string,
   size: PropTypes.number,
   isLightTheme: PropTypes.bool,
 };
 
-Facebook.defaultProps = {
+Linkedin.defaultProps = {
   username: null,
   size: 24,
   isLightTheme: true,
 };
 
-export default withThemeFlag(Facebook);
+export default withThemeFlag(Linkedin);
