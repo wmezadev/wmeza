@@ -37,7 +37,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
+        path: `${__dirname}/content/pages/blog`,
         name: 'blog',
       },
     },
@@ -46,6 +46,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/assets`,
         name: `assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/pages/portfolio`,
+        name: `portfolio`,
       },
     },
     {
@@ -89,8 +96,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `WMEZA Blog`,
+        short_name: `wmeza.com`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
@@ -111,7 +118,7 @@ module.exports = {
       options: {
         langKeyDefault: lang,
         useLangKeyLayout: false,
-        pagesPaths: ['/content/blog/'],
+        pagesPaths: ['/content/pages'],
       },
     },
   ],

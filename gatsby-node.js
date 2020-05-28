@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require(`path`);
 const R = require('ramda');
 const { haveSameItem, getPreviousNextNode, kebabCase } = require('./src/utils/helpers');
@@ -13,7 +14,7 @@ const byLangKey = R.groupBy(R.path(['node', 'fields', 'langKey']));
 // group by directoryName
 const byDirectoryName = R.groupBy(R.path(['node', 'fields', 'directoryName']));
 
-const translationsByDirectory = posts => {
+const translationsByDirectory = (posts) => {
   const gpDirPosts = byDirectoryName(posts);
 
   const dirNames = R.keys(gpDirPosts);
@@ -32,13 +33,17 @@ const translationsByDirectory = posts => {
 function PageMaker(createPage) {
   const blogIndex = path.resolve('./src/templates/blog-index.js');
   const blogPost = path.resolve('./src/templates/blog-post.js');
+
+  const portfolioIndex = path.resolve('./src/templates/portfolio-index.js');
+  const portfolioProject = path.resolve('./src/templates/portfolio-project.js');
+
   const tagsTotal = path.resolve('./src/templates/tags.js');
   const tagPage = path.resolve('./src/templates/tag-page.js');
 
   return {
     createBlogIndex() {
       // Create index pages for all supported languages
-      Object.keys(supportedLanguages).forEach(langKey => {
+      Object.keys(supportedLanguages).forEach((langKey) => {
         createPage({
           path: getBaseUrl(defaultLang, langKey),
           component: blogIndex,
@@ -49,15 +54,28 @@ function PageMaker(createPage) {
       });
     },
 
+    createPortfolioIndex() {
+      // Create index pages for all supported languages
+      Object.keys(supportedLanguages).forEach((langKey) => {
+        createPage({
+          path: `${getBaseUrl(defaultLang, langKey)}portfolio/`,
+          component: portfolioIndex,
+          context: {
+            langKey,
+          },
+        });
+      });
+    },
+
     createBlogPost(posts) {
       const translationsInfo = displayTranslations ? translationsByDirectory(posts) : [];
 
-      posts.forEach(post => {
+      posts.forEach((post) => {
         // posts in same language
         const postLangKey = post.node.fields.langKey;
         const postsInSameLang = posts.filter(({ node }) => postLangKey === node.fields.langKey);
         const indexInSameLang = postsInSameLang.findIndex(
-          p => p.node.fields.slug === post.node.fields.slug,
+          (p) => p.node.fields.slug === post.node.fields.slug,
         );
         const { previous, next } = getPreviousNextNode(postsInSameLang, indexInSameLang);
 
@@ -67,7 +85,7 @@ function PageMaker(createPage) {
           haveSameItem(postTags, node.frontmatter.tags),
         );
         const indexInSameTag = postsInSameTag.findIndex(
-          p => p.node.fields.slug === post.node.fields.slug,
+          (p) => p.node.fields.slug === post.node.fields.slug,
         );
         const { previous: previousInSameTag, next: nextInSameTag } = getPreviousNextNode(
           postsInSameTag,
@@ -80,17 +98,17 @@ function PageMaker(createPage) {
           const dirName = post.node.fields.directoryName;
           const translations = R.without([postLangKey], translationsInfo[dirName]);
 
-          translationsLink = translations.map(trans => ({
+          translationsLink = translations.map((trans) => ({
             name: supportedLanguages[trans],
             url: `/${trans}/${dirName}/`.replace(`/${defaultLang}`, ''),
           }));
         }
 
         createPage({
-          path: post.node.fields.slug,
+          path: `${post.node.fields.slug}`,
           component: blogPost,
           context: {
-            slug: post.node.fields.slug,
+            slug: `${post.node.fields.slug}`,
             previous,
             next,
             previousInSameTag,
@@ -101,8 +119,47 @@ function PageMaker(createPage) {
       });
     },
 
+    createPortfolioProject(projects) {
+      const translationsInfo = displayTranslations ? translationsByDirectory(projects) : [];
+
+      projects.forEach((project) => {
+        // projects in same language
+        const projectLangKey = project.node.fields.langKey;
+        const projectsInSameLang = projects.filter(
+          ({ node }) => projectLangKey === node.fields.langKey,
+        );
+        const indexInSameLang = projectsInSameLang.findIndex(
+          (p) => p.node.fields.slug === project.node.fields.slug,
+        );
+        const { previous, next } = getPreviousNextNode(projectsInSameLang, indexInSameLang);
+
+        // translations
+        let translationsLink = [];
+        if (displayTranslations && R.path(['node', 'fields', 'directoryName'], project)) {
+          const dirName = project.node.fields.directoryName;
+          const translations = R.without([projectLangKey], translationsInfo[dirName]);
+
+          translationsLink = translations.map((trans) => ({
+            name: supportedLanguages[trans],
+            url: `/${trans}/${dirName}/`.replace(`/${defaultLang}`, ''),
+          }));
+        }
+
+        createPage({
+          path: `${project.node.fields.slug}`,
+          component: blogPost,
+          context: {
+            slug: `${project.node.fields.slug}`,
+            previous,
+            next,
+            translationsLink,
+          },
+        });
+      });
+    },
+
     createTagIndex(postsGroupByLang) {
-      Object.keys(postsGroupByLang).forEach(langKey => {
+      Object.keys(postsGroupByLang).forEach((langKey) => {
         // Make tags-total
         createPage({
           path: `${getBaseUrl(defaultLang, langKey)}tags/`,
@@ -115,10 +172,10 @@ function PageMaker(createPage) {
     },
 
     createTagPage(postsGroupByLang) {
-      Object.keys(postsGroupByLang).forEach(langKey => {
+      Object.keys(postsGroupByLang).forEach((langKey) => {
         // Tag pages:
         let tags = [];
-        postsGroupByLang[langKey].forEach(post => {
+        postsGroupByLang[langKey].forEach((post) => {
           if (R.path(['node', 'frontmatter', 'tags'], post)) {
             tags = tags.concat(post.node.frontmatter.tags);
           }
@@ -127,7 +184,7 @@ function PageMaker(createPage) {
         tags = R.uniq(tags);
 
         // Make tag pages
-        tags.forEach(tag => {
+        tags.forEach((tag) => {
           createPage({
             path: `${getBaseUrl(defaultLang, langKey)}tags/${kebabCase(tag)}/`,
             component: tagPage,
@@ -159,6 +216,9 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
                     slug
                     langKey
                     directoryName
+                    subFolder {
+                      sourceInstanceName
+                    }
                   }
                   frontmatter {
                     date(formatString: "MMMM DD, YYYY")
@@ -170,7 +230,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
             }
           }
         `,
-      ).then(result => {
+      ).then((result) => {
         if (result.errors) {
           console.log(result.errors);
           reject(result.errors);
@@ -189,10 +249,16 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
   });
 };
 
-exports.onCreateNode = ({ node, actions }) => {
+exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
 
   if (R.path(['internal', 'type'], node) === 'MarkdownRemark') {
+    createNodeField({
+      node,
+      name: 'subFolder',
+      value: path.basename(node.fileAbsolutePath),
+    });
+
     createNodeField({
       node,
       name: 'directoryName',

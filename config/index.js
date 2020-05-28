@@ -1,6 +1,6 @@
 const site = {
   pathPrefix: '/wmeza',
-  title: 'William Meza personal blog',
+  title: 'William Meza',
   author: 'William Meza',
   description: 'Web development blog for full-stacks.',
   siteUrl: 'https://wmeza.com/',
@@ -8,7 +8,7 @@ const site = {
   github: 'wemf',
   medium: 'wemf',
   linkedin: 'william-meza',
-  disqusShortName: 'wmeza-blog',
+  disqusShortName: '',
   googleTrackingId: 'UA-131030011-1',
   lang: 'en',
   displayTranslations: true,
