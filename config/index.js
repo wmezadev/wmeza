@@ -1,22 +1,22 @@
 const site = {
-  pathPrefix: '/gatsby-simple-blog',
-  title: 'Gatsby Starter Blog',
-  author: 'Kyle Mathews',
-  description: 'A starter blog demonstrating what Gatsby can do.',
-  siteUrl: 'https://gatsby-starter-blog-demo.netlify.com/',
-  twitter: 'kylemathews',
-  github: 'thundermiracle',
-  medium: 'thundermiracle',
-  facebook: 'thundermiracle',
-  disqusShortName: 'gatsby-simple-blog',
-  googleTrackingId: '',
+  pathPrefix: '/wmeza',
+  title: 'William Meza personal blog',
+  author: 'William Meza',
+  description: 'Web development blog for full-stacks.',
+  siteUrl: 'https://wmeza.com/',
+  twitter: 'wemf',
+  github: 'wemf',
+  medium: 'wemf',
+  linkedin: 'william-meza',
+  disqusShortName: 'wmeza-blog',
+  googleTrackingId: 'UA-131030011-1',
   lang: 'en',
   displayTranslations: true,
 };
 
 const supportedLanguages = {
   en: 'English',
-  'zh-hans': '简体中文',
+  es: 'Español',
 };
 
 module.exports = {

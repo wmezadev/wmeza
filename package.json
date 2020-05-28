@@ -1,10 +1,10 @@
 {
-  "name": "gatsby-simple-blog",
-  "description": "forked from gatsby-starter-blog with overreacted looking and with tags, breadcrumbs support",
+  "name": "wmeza-personal-blog",
+  "description": "Programming and Tech stuff by an all in one geek",
   "version": "0.2.0",
   "author": "thundermiracle",
   "bugs": {
-    "url": "https://github.com/thundermiracle/gatsby-simple-blog/issues"
+    "url": "https://github.com/wemf/wmeza/issues"
   },
   "dependencies": {
     "disqus-react": "^1.0.8",
@@ -65,7 +65,7 @@
     "jest": "^26.0.1",
     "prettier": "^2.0.5"
   },
-  "homepage": "https://thundermiracle.github.io/gatsby-simple-blog",
+  "homepage": "https://wmeza.com",
   "keywords": [
     "gatsbyjs",
     "starter",
@@ -79,7 +79,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thundermiracle/gatsby-simple-blog.git"
+    "url": "git+https://github.com/wemf/wmeza.git"
   },
   "scripts": {
     "build": "gatsby build",
