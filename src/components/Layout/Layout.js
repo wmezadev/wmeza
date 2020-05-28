@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { useLang } from 'context/LanguageContext';
 import { rhythm } from 'utils/typography';
+import { Link } from 'gatsby';
 
 import LanguageBar from './LanguageBar';
 import Header from './Header';
@@ -27,6 +28,11 @@ function Layout({ children, location, title, breadcrumbs }) {
         fontFamily: 'var(--systemFont)',
       }}
     >
+      <ul>
+        <li>
+          <Link to="about-me">About me</Link>
+        </li>
+      </ul>
       <LanguageBar lang={lang} />
       <div
         style={{

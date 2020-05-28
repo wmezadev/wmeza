@@ -12,13 +12,9 @@ function Footer() {
       }}
     >
       <p>
-        Made of{' '}
-        <a
-          href="https://github.com/thundermiracle/gatsby-simple-blog"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          gatsby-simple-blog
+        Made with{' '}
+        <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">
+          gatsby
         </a>
       </p>
     </footer>

@@ -59,7 +59,9 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fields: { langKey: { eq: $langKey } } }
+      filter: {
+        fields: { langKey: { eq: $langKey }, subFolder: { sourceInstanceName: { eq: "blog" } } }
+      }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
@@ -70,6 +72,9 @@ export const pageQuery = graphql`
           fields {
             slug
             langKey
+            subFolder {
+              sourceInstanceName
+            }
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
