@@ -1,10 +1,12 @@
 module.exports = {
   tHome: 'Inicio',
-  tRelativePosts: 'Posts relacionados',
-  tTags: 'Etiquetado',
-  tIndTitle: 'Todos los posts',
+  tRelativePosts: 'Entradas relacionadas',
+  tTags: 'Etiquetada',
+  tIndTitle: 'Todas las entradas',
   taIndKeywords: [`blog`, `gatsby`, `javascript`, `react`],
-  tfIndCountPosts: (count) => `${count} posts`,
+  tfIndCountPosts: (count) => `${count} entrada${count === 1 ? '' : 's'}`,
   tfTagHeader: (totalCount, tag) =>
-    `${totalCount} post${totalCount === 1 ? '' : 's'} etiquetado con "${tag}"`,
+    `${totalCount} entrada${totalCount === 1 ? '' : 's'} etiquetada con "${tag}"`,
+  tLatestPosts: 'Últimas entradas',
+  tPortfolio: 'Portafolio',
 };

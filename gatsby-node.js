@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require(`path`);
 const R = require('ramda');
 const { haveSameItem, getPreviousNextNode, kebabCase } = require('./src/utils/helpers');
@@ -100,7 +99,7 @@ function PageMaker(createPage) {
 
           translationsLink = translations.map((trans) => ({
             name: supportedLanguages[trans],
-            url: `/${trans}/${dirName}/`.replace(`/${defaultLang}`, ''),
+            url: `/${trans}/blog/${dirName}/`.replace(`/${defaultLang}`, ''),
           }));
         }
 
@@ -147,7 +146,7 @@ function PageMaker(createPage) {
 
         createPage({
           path: `${project.node.fields.slug}`,
-          component: blogPost,
+          component: portfolioProject,
           context: {
             slug: `${project.node.fields.slug}`,
             previous,
@@ -236,9 +235,16 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
           reject(result.errors);
         }
 
-        const posts = result.data.allMarkdownRemark.edges;
+        const posts = result.data.allMarkdownRemark.edges.filter(
+          ({ node }) => node.fields.subFolder.sourceInstanceName === 'blog',
+        );
+
+        const projects = result.data.allMarkdownRemark.edges.filter(
+          ({ node }) => node.fields.subFolder.sourceInstanceName === 'portfolio',
+        );
         const gpLangPosts = byLangKey(posts);
 
+        pageMaker.createPortfolioProject(projects);
         pageMaker.createBlogPost(posts);
         pageMaker.createTagIndex(gpLangPosts);
         pageMaker.createTagPage(gpLangPosts);
@@ -249,7 +255,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
   });
 };
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
   if (R.path(['internal', 'type'], node) === 'MarkdownRemark') {

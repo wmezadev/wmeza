@@ -11,7 +11,13 @@ import { formatMessage } from 'utils/i18n';
 
 function BlogIndex({ data, location }) {
   const siteTitle = data.site.siteMetadata.title;
-  const posts = data.allMarkdownRemark.edges;
+  const posts = data.allMarkdownRemark.edges.filter(
+    ({ node }) => node.fields.subFolder.sourceInstanceName === 'blog',
+  );
+
+  const projects = data.allMarkdownRemark.edges.filter(
+    ({ node }) => node.fields.subFolder.sourceInstanceName === 'portfolio',
+  );
 
   const { lang, homeLink } = useLang();
 
@@ -21,8 +27,25 @@ function BlogIndex({ data, location }) {
       <aside>
         <Bio />
       </aside>
-      <h4>{formatMessage('tfIndCountPosts', data.allMarkdownRemark.totalCount)}</h4>
+      <h4>{formatMessage('tLatestPosts')}</h4>
       {posts.map(({ node }) => {
+        const title = node.frontmatter.title || node.fields.slug;
+        return (
+          <PostAbbrev
+            lang={lang}
+            base={homeLink}
+            key={node.fields.slug}
+            slug={node.fields.slug}
+            date={node.frontmatter.date}
+            timeToRead={node.timeToRead}
+            title={title}
+            excerpt={node.frontmatter.description || node.excerpt}
+            tags={node.frontmatter.tags}
+          />
+        );
+      })}
+      <h4>{formatMessage('tPortfolio')}</h4>
+      {projects.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
           <PostAbbrev
@@ -59,10 +82,9 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: {
-        fields: { langKey: { eq: $langKey }, subFolder: { sourceInstanceName: { eq: "blog" } } }
-      }
       sort: { fields: [frontmatter___date], order: DESC }
+      limit: 1000
+      filter: { fields: { langKey: { eq: $langKey } } }
     ) {
       totalCount
       edges {
