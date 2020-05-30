@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import { useLang } from 'context/LanguageContext';
 import { rhythm } from 'utils/typography';
-import { Link } from 'gatsby';
 
 import LanguageBar from './LanguageBar';
 import Header from './Header';
 import Footer from './Footer';
 import ReadModeToggle from './ReadModeToggle';
 import Breadcrumbs from '../Breadcrumbs';
+import TopMenu from './TopMenu';
 
 function Layout({ children, location, title, breadcrumbs }) {
   const { lang, homeLink, refresh } = useLang();
@@ -28,41 +28,24 @@ function Layout({ children, location, title, breadcrumbs }) {
         fontFamily: 'var(--systemFont)',
       }}
     >
-      <ul>
-        <li>
-          <Link to="about-me">About me</Link>
-        </li>
-      </ul>
-      <LanguageBar lang={lang} />
-      <div
+      <header
         style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          maxWidth: rhythm(24),
-          padding: `2.625rem ${rhythm(3 / 4)}`,
+          display: 'flex',
         }}
       >
-        <header
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: '2.625rem',
-          }}
-        >
-          <Header base={homeLink} location={location} title={title} />
-          <ReadModeToggle />
-        </header>
-        <Breadcrumbs
-          base={homeLink}
-          langKey={lang}
-          data={breadcrumbs}
-          showTop={true}
-          style={{ marginTop: '-1.5rem' }}
-        />
-        {children}
-        <Footer />
-      </div>
+        <Header base={homeLink} location={location} title={title} />
+        <TopMenu />
+        <ReadModeToggle />
+      </header>
+      <Breadcrumbs
+        base={homeLink}
+        langKey={lang}
+        data={breadcrumbs}
+        showTop={true}
+        style={{ marginTop: '-1.5rem' }}
+      />
+      {children}
+      <Footer />
     </div>
   );
 }
