@@ -19,7 +19,7 @@ function Bio() {
     <StaticQuery
       // eslint-disable-next-line no-use-before-define
       query={bioQuery}
-      render={data => {
+      render={(data) => {
         const { author, description } = data.site.siteMetadata;
         return (
           <div
@@ -40,7 +40,7 @@ function Bio() {
                 }}
               />
               <div className="description">
-                <p>{description}</p>
+                <p style={{ textAlign: 'center' }}>{description}</p>
                 <SocialBar />
               </div>
             </div>

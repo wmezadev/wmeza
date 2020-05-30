@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import Bio from 'components/Bio';
 import Layout from 'components/Layout';
 import SEO from 'components/SEO';
 import PostAbbrev from 'components/PostAbbrev';
@@ -24,9 +23,6 @@ function BlogIndex({ data, location }) {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={formatMessage('tIndTitle')} keywords={formatMessage('taIndKeywords')} />
-      <aside>
-        <Bio />
-      </aside>
       <h4>{formatMessage('tLatestPosts')}</h4>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
