@@ -26,61 +26,63 @@ function BlogPostTemplate({ data, pageContext, location }) {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <h1>{post.frontmatter.title}</h1>
-      <p
-        style={{
-          ...scale(-1 / 5),
-          display: `block`,
-          marginBottom: rhythm(1),
-          marginTop: rhythm(-1),
-        }}
-      >
-        {formatDate(post.frontmatter.date)}
-        {` • ${formatReadingTime(post.timeToRead)}`}
-      </p>
+      <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+        <h1>{post.frontmatter.title}</h1>
+        <p
+          style={{
+            ...scale(-1 / 5),
+            display: `block`,
+            marginBottom: rhythm(1),
+            marginTop: rhythm(-1),
+          }}
+        >
+          {formatDate(post.frontmatter.date)}
+          {` • ${formatReadingTime(post.timeToRead)}`}
+        </p>
 
-      <TranslationsLink
-        translationsLink={translationsLink}
-        langKey={lang}
-        style={{ margin: '-0.5rem 0 1.5rem' }}
-      />
+        <TranslationsLink
+          translationsLink={translationsLink}
+          langKey={lang}
+          style={{ margin: '-0.5rem 0 1.5rem' }}
+        />
 
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
-      <RelativePosts postNodes={[previousInSameTag, nextInSameTag]} lang={lang} />
+        <RelativePosts postNodes={[previousInSameTag, nextInSameTag]} lang={lang} />
 
-      <hr
-        style={{
-          marginBottom: rhythm(1),
-        }}
-      />
-      <Bio />
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <Bio />
 
-      <ul
-        style={{
-          display: `flex`,
-          flexWrap: `wrap`,
-          justifyContent: `space-between`,
-          listStyle: `none`,
-          padding: 0,
-          marginLeft: 0,
-        }}
-      >
-        <li>
-          {previous && (
-            <Link to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
-            </Link>
-          )}
-        </li>
-        <li>
-          {next && (
-            <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
-            </Link>
-          )}
-        </li>
-      </ul>
+        <ul
+          style={{
+            display: `flex`,
+            flexWrap: `wrap`,
+            justifyContent: `space-between`,
+            listStyle: `none`,
+            padding: 0,
+            marginLeft: 0,
+          }}
+        >
+          <li>
+            {previous && (
+              <Link to={previous.fields.slug} rel="prev">
+                ← {previous.frontmatter.title}
+              </Link>
+            )}
+          </li>
+          <li>
+            {next && (
+              <Link to={next.fields.slug} rel="next">
+                {next.frontmatter.title} →
+              </Link>
+            )}
+          </li>
+        </ul>
+      </div>
     </Layout>
   );
 }

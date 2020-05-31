@@ -28,27 +28,29 @@ const TagPageTemplate = ({ pageContext, data, location }) => {
       breadcrumbs={[{ text: formatMessage('tTags'), url: `${homeLink}tags` }, { text: tag }]}
     >
       <SEO title={tagHeader} description={tagHeader} />
-      <h1>{tagHeader}</h1>
-      <main>
-        {edges.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          return (
-            <PostAbbrev
-              key={node.fields.slug}
-              base={homeLink}
-              lang={lang}
-              slug={node.fields.slug}
-              date={node.frontmatter.date}
-              timeToRead={node.timeToRead}
-              title={title}
-            />
-          );
-        })}
-      </main>
-      <div style={{ marginTop: 50 }} />
-      <aside>
-        <Bio />
-      </aside>
+      <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+        <h1>{tagHeader}</h1>
+        <main>
+          {edges.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug;
+            return (
+              <PostAbbrev
+                key={node.fields.slug}
+                base={homeLink}
+                lang={lang}
+                slug={node.fields.slug}
+                date={node.frontmatter.date}
+                timeToRead={node.timeToRead}
+                title={title}
+              />
+            );
+          })}
+        </main>
+        <div style={{ marginTop: 50 }} />
+        <aside>
+          <Bio />
+        </aside>
+      </div>
     </Layout>
   );
 };

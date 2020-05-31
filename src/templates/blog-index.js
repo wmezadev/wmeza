@@ -23,40 +23,42 @@ function BlogIndex({ data, location }) {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={formatMessage('tIndTitle')} keywords={formatMessage('taIndKeywords')} />
-      <h4>{formatMessage('tLatestPosts')}</h4>
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug;
-        return (
-          <PostAbbrev
-            lang={lang}
-            base={homeLink}
-            key={node.fields.slug}
-            slug={node.fields.slug}
-            date={node.frontmatter.date}
-            timeToRead={node.timeToRead}
-            title={title}
-            excerpt={node.frontmatter.description || node.excerpt}
-            tags={node.frontmatter.tags}
-          />
-        );
-      })}
-      <h4>{formatMessage('tPortfolio')}</h4>
-      {projects.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug;
-        return (
-          <PostAbbrev
-            lang={lang}
-            base={homeLink}
-            key={node.fields.slug}
-            slug={node.fields.slug}
-            date={node.frontmatter.date}
-            timeToRead={node.timeToRead}
-            title={title}
-            excerpt={node.frontmatter.description || node.excerpt}
-            tags={node.frontmatter.tags}
-          />
-        );
-      })}
+      <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+        <h4>{formatMessage('tLatestPosts')}</h4>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug;
+          return (
+            <PostAbbrev
+              lang={lang}
+              base={homeLink}
+              key={node.fields.slug}
+              slug={node.fields.slug}
+              date={node.frontmatter.date}
+              timeToRead={node.timeToRead}
+              title={title}
+              excerpt={node.frontmatter.description || node.excerpt}
+              tags={node.frontmatter.tags}
+            />
+          );
+        })}
+        <h4>{formatMessage('tPortfolio')}</h4>
+        {projects.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug;
+          return (
+            <PostAbbrev
+              lang={lang}
+              base={homeLink}
+              key={node.fields.slug}
+              slug={node.fields.slug}
+              date={node.frontmatter.date}
+              timeToRead={node.timeToRead}
+              title={title}
+              excerpt={node.frontmatter.description || node.excerpt}
+              tags={node.frontmatter.tags}
+            />
+          );
+        })}
+      </div>
     </Layout>
   );
 }

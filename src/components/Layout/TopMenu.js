@@ -32,9 +32,6 @@ const TopMenu = () => {
             <li>
               <Link to="#">Contact</Link>
             </li>
-            <li>
-              <ReadModeToggle />
-            </li>
             {/* 
             <li>
               <Link to="#"><LanguageBar /></Link>
@@ -42,6 +39,7 @@ const TopMenu = () => {
             */}
           </ul>
         </nav>
+        <ReadModeToggle />
       </div>
     </>
   );

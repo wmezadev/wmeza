@@ -18,25 +18,27 @@ function PorfolioIndex({ data, location }) {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={formatMessage('tIndTitle')} keywords={formatMessage('taIndKeywords')} />
-      <aside>
-        <Bio />
-      </aside>
-      <h4>{formatMessage('tfIndCountPosts', data.allMarkdownRemark.totalCount)}</h4>
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug;
-        return (
-          <PostAbbrev
-            lang={lang}
-            base={homeLink}
-            key={node.fields.slug}
-            slug={node.fields.slug}
-            date={node.frontmatter.date}
-            timeToRead={node.timeToRead}
-            title={title}
-            excerpt={node.frontmatter.description || node.excerpt}
-          />
-        );
-      })}
+      <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+        <aside>
+          <Bio />
+        </aside>
+        <h4>{formatMessage('tfIndCountPosts', data.allMarkdownRemark.totalCount)}</h4>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug;
+          return (
+            <PostAbbrev
+              lang={lang}
+              base={homeLink}
+              key={node.fields.slug}
+              slug={node.fields.slug}
+              date={node.frontmatter.date}
+              timeToRead={node.timeToRead}
+              title={title}
+              excerpt={node.frontmatter.description || node.excerpt}
+            />
+          );
+        })}
+      </div>
     </Layout>
   );
 }

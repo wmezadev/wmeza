@@ -35,21 +35,23 @@ const TagsPage = ({
 
   return (
     <Layout location={location} title={title} breadcrumbs={[{ text: tTags }]}>
-      <aside>
-        <Bio />
-      </aside>
-      <Helmet title={tTags} />
-      <div>
-        <h1>{tTags}</h1>
-        <div style={styles.tagListDiv}>
-          {group.map(tag => (
-            <Tag
-              key={tag.fieldValue}
-              text={tag.fieldValue}
-              count={tag.totalCount}
-              url={`${homeLink}tags/${kebabCase(tag.fieldValue)}/`}
-            />
-          ))}
+      <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+        <aside>
+          <Bio />
+        </aside>
+        <Helmet title={tTags} />
+        <div>
+          <h1>{tTags}</h1>
+          <div style={styles.tagListDiv}>
+            {group.map((tag) => (
+              <Tag
+                key={tag.fieldValue}
+                text={tag.fieldValue}
+                count={tag.totalCount}
+                url={`${homeLink}tags/${kebabCase(tag.fieldValue)}/`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </Layout>
