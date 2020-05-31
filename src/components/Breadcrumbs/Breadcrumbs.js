@@ -22,7 +22,11 @@ function Breadcrumbs({ data, showTop, base, langKey, ...restProps }) {
   }
 
   return (
-    <ul className="breadcrumbs breadcrumbs-ul" {...restProps}>
+    <ul
+      style={{ maxWidth: '900px', margin: 'auto' }}
+      className="breadcrumbs breadcrumbs-ul"
+      {...restProps}
+    >
       {topBCli}
       {data.map(({ text, url }) => {
         if (url != null) {

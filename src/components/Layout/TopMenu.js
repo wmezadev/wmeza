@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import './TopMenu.css';
+import LanguageBar from './LanguageBar';
+import ReadModeToggle from './ReadModeToggle';
 
 const TopMenu = () => {
   const [menu, setMenu] = useState(false);
@@ -31,8 +33,13 @@ const TopMenu = () => {
               <Link to="#">Contact</Link>
             </li>
             <li>
-              <Link to="#">Spanish</Link>
+              <ReadModeToggle />
             </li>
+            {/* 
+            <li>
+              <Link to="#"><LanguageBar /></Link>
+            </li> 
+            */}
           </ul>
         </nav>
       </div>

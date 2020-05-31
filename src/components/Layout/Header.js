@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Link } from 'gatsby';
+import Image from 'gatsby-image';
 
-import { scale } from 'utils/typography';
+import { Link, StaticQuery, graphql } from 'gatsby';
+
+import TopMenu from './TopMenu';
 
 /**
  * base MUST include slash (eg: en/)
@@ -11,52 +13,60 @@ import { scale } from 'utils/typography';
  * @param {*object} { location, title, base}
  */
 function Header({ location, title, base }) {
-  // eslint-disable-next-line no-undef
-  const rootPath = `${__PATH_PREFIX__}${base}`;
+  const elHeader = React.useRef();
 
-  if (location.pathname === rootPath) {
-    return (
-      <h1
-        style={{
-          ...scale(0.75),
-          marginBottom: 0,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: 'none',
-            textDecoration: 'none',
-            color: 'var(--textTitle)',
-          }}
-          to={base}
-        >
-          {title}
-        </Link>
-      </h1>
-    );
-  }
+  const [headerSticky, setHeaderSticky] = React.useState(false);
+
+  React.useEffect(() => {
+    const sticky = elHeader.current.offsetTop;
+
+    const stickyMenu = () => {
+      console.log('pageYOffset', window.pageYOffset);
+      console.log('pageYOffset', sticky);
+      if (window.pageYOffset > sticky) {
+        setHeaderSticky(true);
+      } else {
+        setHeaderSticky(false);
+      }
+    };
+
+    window.onscroll = () => {
+      stickyMenu();
+    };
+  }, [elHeader]);
+
   return (
-    <h3
+    <header
       style={{
-        fontFamily: 'Montserrat, sans-serif',
-        marginTop: 0,
-        marginBottom: 0,
-        height: 42,
-        lineHeight: '2.625rem',
+        display: 'flex',
+        justifyContent: 'space-between',
+        padding: '30px 20px',
+        maxWidth: '900px',
+        margin: 'auto',
       }}
+      className={headerSticky ? 'sticky-menu' : ''}
+      ref={elHeader}
     >
-      <Link
-        style={{
-          boxShadow: 'none',
-          textDecoration: 'none',
-          color: 'rgb(255, 167, 196)',
+      <StaticQuery
+        // eslint-disable-next-line no-use-before-define
+        query={headerQuery}
+        render={(data) => {
+          return (
+            <Link
+              style={{
+                boxShadow: 'none',
+                textDecoration: 'none',
+                color: 'var(--textTitle)',
+              }}
+              to={base}
+            >
+              <Image fixed={data.logo.childImageSharp.fixed} alt={`logo ${title}`} />
+            </Link>
+          );
         }}
-        to={base}
-      >
-        {title}
-      </Link>
-    </h3>
+      />
+      <TopMenu />
+    </header>
   );
 }
 
@@ -70,5 +80,23 @@ Header.defaultProps = {
   title: null,
   base: '',
 };
+
+const headerQuery = graphql`
+  query headerQuery {
+    logo: file(absolutePath: { regex: "/wmeza-logo.png/" }) {
+      childImageSharp {
+        fixed(width: 180) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        author
+        description
+      }
+    }
+  }
+`;
 
 export default Header;

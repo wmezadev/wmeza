@@ -2,14 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { useLang } from 'context/LanguageContext';
-import { rhythm } from 'utils/typography';
 
-import LanguageBar from './LanguageBar';
 import Header from './Header';
 import Footer from './Footer';
-import ReadModeToggle from './ReadModeToggle';
 import Breadcrumbs from '../Breadcrumbs';
-import TopMenu from './TopMenu';
 
 function Layout({ children, location, title, breadcrumbs }) {
   const { lang, homeLink, refresh } = useLang();
@@ -28,15 +24,7 @@ function Layout({ children, location, title, breadcrumbs }) {
         fontFamily: 'var(--systemFont)',
       }}
     >
-      <header
-        style={{
-          display: 'flex',
-        }}
-      >
-        <Header base={homeLink} location={location} title={title} />
-        <TopMenu />
-        <ReadModeToggle />
-      </header>
+      <Header base={homeLink} location={location} title={title} />
       <Breadcrumbs
         base={homeLink}
         langKey={lang}
@@ -44,7 +32,7 @@ function Layout({ children, location, title, breadcrumbs }) {
         showTop={true}
         style={{ marginTop: '-1.5rem' }}
       />
-      {children}
+      <main>{children}</main>
       <Footer />
     </div>
   );
