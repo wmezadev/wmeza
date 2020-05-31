@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-
+import { Link, graphql } from 'gatsby';
+import './blog-index.css';
 import Layout from 'components/Layout';
 import SEO from 'components/SEO';
 import PostAbbrev from 'components/PostAbbrev';
 import { useLang } from 'context/LanguageContext';
 import { formatMessage } from 'utils/i18n';
+import Image from 'gatsby-image';
 
 function BlogIndex({ data, location }) {
   const siteTitle = data.site.siteMetadata.title;
@@ -23,7 +24,36 @@ function BlogIndex({ data, location }) {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={formatMessage('tIndTitle')} keywords={formatMessage('taIndKeywords')} />
-      <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+      <section className="banner">
+        <div className="content-margin">
+          <div className="banner-inner">
+            <div>
+              <h1 className="banner-title">Hi, I&#39;m William!</h1>
+              <p className="banner-subtitle">
+                I develop projects for the web. The challenges are my passion
+                <span role="img" aria-label="Fire">
+                  🔥
+                </span>
+              </p>
+            </div>
+            <div className="profile-card">
+              <Image
+                fixed={data.avatar.childImageSharp.fixed}
+                alt={data.author}
+                imgStyle={{
+                  borderRadius: '50%',
+                }}
+              />
+              <h4>Email Newsletter</h4>
+              <p>Get an update when something new comes out by signing up below!</p>
+              <Link to="#!" className="button button-primary button-transparent">
+                Subscribe
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="content-margin">
         <h4>{formatMessage('tLatestPosts')}</h4>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
@@ -74,9 +104,18 @@ export default BlogIndex;
 
 export const pageQuery = graphql`
   query($langKey: String!) {
+    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        fixed(width: 120, height: 120) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     site {
       siteMetadata {
         title
+        author
+        description
       }
     }
     allMarkdownRemark(
