@@ -13,9 +13,9 @@ function Breadcrumbs({ data, showTop, base, langKey, ...restProps }) {
   let topBCli;
   if (showTop) {
     topBCli = (
-      <li className="breadcrumbs-item">
-        <Link to={base} className="breadcrumbs-element">
-          {formatMessage('tHome')}
+      <li className="breadcrumbs-item" itemScope itemType="http://data-vocabulary.org/Breadcrumb">
+        <Link to={base} className="breadcrumbs-element" itemProp="url">
+          <span itemProp="title">{formatMessage('tHome')}</span>
         </Link>
       </li>
     );
@@ -31,16 +31,28 @@ function Breadcrumbs({ data, showTop, base, langKey, ...restProps }) {
       {data.map(({ text, url }) => {
         if (url != null) {
           return (
-            <li className="breadcrumbs-item" key={text}>
-              <Link to={url} className="breadcrumbs-element">
-                {text}
+            <li
+              className="breadcrumbs-item"
+              key={text}
+              itemScope
+              itemType="http://data-vocabulary.org/Breadcrumb"
+            >
+              <Link to={url} className="breadcrumbs-element" itemProp="url">
+                <span itemProp="title">{text}</span>
               </Link>
             </li>
           );
         }
         return (
-          <li className="breadcrumbs-item_active" key={text}>
-            <span className="breadcrumbs-element">{text}</span>
+          <li
+            className="breadcrumbs-item_active"
+            key={text}
+            itemScope
+            itemType="http://data-vocabulary.org/Breadcrumb"
+          >
+            <span className="breadcrumbs-element" itemProp="title">
+              {text}
+            </span>
           </li>
         );
       })}
