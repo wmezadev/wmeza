@@ -3,6 +3,12 @@
   align-items: center;
 }
 
+.main-nav a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 /* 
   ##Device = High Resolution Desktop, Laptops
   ##Screen = B/w 768px to 1320px
@@ -122,12 +128,8 @@
     padding: 0;
   }
   .main-nav a {
-    display: block;
     padding: 12px 0;
-    color: #000000;
     font-size: 1.4em;
-    text-decoration: none;
-    font-weight: bold;
   }
 
   /* Burger Style: @see: https://codepen.io/CreativeJuiz/full/oMZNXy */
