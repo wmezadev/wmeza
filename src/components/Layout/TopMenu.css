@@ -12,13 +12,17 @@
     display: none;
   }
   .main-nav {
-    width: 400px;
+    display: flex;
+    position: unset;
+    justify-content: space-between;
+    width: 400px !important;
   }
   .main-nav ul {
     display: flex;
     list-style: none;
     justify-content: space-between;
     margin: 0;
+    width: 100%;
   }
   .main-nav li {
     margin: 0;

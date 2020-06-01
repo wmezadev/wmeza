@@ -37,9 +37,11 @@ const TopMenu = () => {
               <Link to="#"><LanguageBar /></Link>
             </li> 
             */}
+            <li>
+              <ReadModeToggle />
+            </li>
           </ul>
         </nav>
-        <ReadModeToggle />
       </div>
     </>
   );
