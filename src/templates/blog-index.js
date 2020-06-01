@@ -8,6 +8,7 @@ import PostAbbrev from 'components/PostAbbrev';
 import { useLang } from 'context/LanguageContext';
 import { formatMessage } from 'utils/i18n';
 import Image from 'gatsby-image';
+import ReactTypingEffect from 'react-typing-effect';
 
 function BlogIndex({ data, location }) {
   const siteTitle = data.site.siteMetadata.title;
@@ -28,7 +29,9 @@ function BlogIndex({ data, location }) {
         <div className="content-margin">
           <div className="banner-inner">
             <div>
-              <h1 className="banner-title">Hi, I&#39;m William!</h1>
+              <h1 className="banner-title">
+                <ReactTypingEffect text={['Hello world!', `Hi, I'm William!`]} />
+              </h1>
               <p className="banner-subtitle">
                 I develop projects for the web. The challenges are my passion
                 <span role="img" aria-label="Fire">
