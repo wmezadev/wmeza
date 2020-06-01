@@ -4,9 +4,14 @@
 }
 
 .main-nav a {
-  color: #000000;
+  color: var(--textNormal);
   text-decoration: none;
   font-weight: bold;
+}
+
+.main-nav a:hover {
+  color: var(--textLink);
+  text-decoration: underline;
 }
 
 /* 

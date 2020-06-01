@@ -36,8 +36,8 @@
   height: 24px;
   background-color: transparent;
   transition: all 0.2s ease;
-  border: 2px solid black;
-  box-shadow: 2px 2px 0 0 #000;
+  border: 2px solid var(--btnBorderColor);
+  box-shadow: 2px 2px 0 0 var(--btnBorderColor);
 }
 
 .react-toggle-track-check {
@@ -84,7 +84,7 @@
   left: 4px;
   width: 16px;
   height: 16px;
-  background-color: #000;
+  background-color: var(--btnBorderColor);
   box-sizing: border-box;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
   transform: translateX(0);

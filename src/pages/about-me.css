@@ -1,7 +1,7 @@
 .banner-about {
-  background: rgb(37, 37, 37);
+  background: var(--bannerBackground);
   padding: 40px 0px;
-  color: white;
+  color: var(--bannerText);
 }
 
 .banner-about h1 {

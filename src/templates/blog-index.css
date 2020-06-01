@@ -5,9 +5,9 @@
 }
 
 .banner {
-  background: rgb(37, 37, 37);
+  background: var(--bannerBackground);
   padding: 40px 0px;
-  color: white;
+  color: var(--bannerText);
 }
 
 .banner-inner {
@@ -23,7 +23,7 @@
 .banner-title {
   font-family: 'Bebas Neue';
   font-size: 4rem;
-  color: white;
+  color: var(--bannerText);
   margin-top: 0;
 }
 
