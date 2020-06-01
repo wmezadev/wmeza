@@ -9,4 +9,5 @@ module.exports = {
     `${totalCount} entrada${totalCount === 1 ? '' : 's'} etiquetada con "${tag}"`,
   tLatestPosts: 'Últimas entradas',
   tPortfolio: 'Portafolio',
+  tMenuAboutMe: 'Acerca de mi',
 };

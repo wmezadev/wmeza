@@ -24,13 +24,7 @@ function Layout({ children, location, title, breadcrumbs }) {
       }}
     >
       <Header base={homeLink} title={title} />
-      <Breadcrumbs
-        base={homeLink}
-        langKey={lang}
-        data={breadcrumbs}
-        showTop={true}
-        style={{ marginTop: '-1.5rem' }}
-      />
+      <Breadcrumbs base={homeLink} langKey={lang} data={breadcrumbs} showTop={true} />
       <main>{children}</main>
       <Footer />
     </div>

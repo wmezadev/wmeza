@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import './TopMenu.css';
+import { formatMessage } from 'utils/i18n';
 import { useLang } from 'context/LanguageContext';
 /* import LanguageBar from './LanguageBar'; */
 import ReadModeToggle from './ReadModeToggle';
@@ -24,7 +25,7 @@ const TopMenu = () => {
         <nav className={`main-nav ${menu ? 'is-open' : ''}`} id="main-nav">
           <ul>
             <li>
-              <Link to={`${homeLink}/about-me`}>About me</Link>
+              <Link to={`${homeLink}/about-me`}>{formatMessage('tMenuAboutMe')}</Link>
             </li>
             <li>
               <Link to="#">Portfolio</Link>

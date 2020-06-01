@@ -24,7 +24,7 @@ function BlogIndex({ data, location }) {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={formatMessage('tIndTitle')} keywords={formatMessage('taIndKeywords')} />
-      <section className="banner">
+      <section style={{ marginBottom: '5rem' }} className="banner">
         <div className="content-margin">
           <div className="banner-inner">
             <div>

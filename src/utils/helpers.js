@@ -4,7 +4,7 @@ function formatReadingTime(minutes) {
   if (cups > 5) {
     return `${new Array(Math.round(cups / Math.E)).fill('🍱').join('')} ${minutes} min read`;
   }
-  return `${new Array(cups || 1).fill('☕️').join('')} ${minutes} min read`;
+  return `${new Array(cups || 1).fill('⏱').join('')} ${' '}${minutes} min read`;
 }
 
 // `lang` is optional and will default to the current user agent locale
@@ -43,14 +43,14 @@ function getPreviousNextNode(posts, fromInd) {
   };
 }
 
-const isAlphabetNum = s =>
+const isAlphabetNum = (s) =>
   /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g.test(s);
 
 function kebabCase(s) {
   if (isAlphabetNum(s)) {
     return s
       .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-      .map(x => x.toLowerCase())
+      .map((x) => x.toLowerCase())
       .join('-');
   }
 

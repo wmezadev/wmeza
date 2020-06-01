@@ -12,4 +12,5 @@ module.exports = {
   t404Content: 'You just hit a route that doesn&#39;t exist... the sadness.',
   tLatestPosts: 'Latest posts',
   tPortfolio: 'Portfolio',
+  tMenuAboutMe: 'About me',
 };
