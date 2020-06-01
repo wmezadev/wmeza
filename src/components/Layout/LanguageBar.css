@@ -1,14 +1,11 @@
-.bar {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5px 30px;
-  border-bottom: 1px solid;
+.lang-link {
   display: flex;
-  flex-direction: row-reverse;
 }
 
-.toggle-content {
-  max-height: 0px;
-  overflow: hidden;
-  transition: max-height 0.4s ease-in-out;
+.lang-link svg {
+  fill: var(--textNormal);
+}
+
+.lang-link:hover svg {
+  fill: var(--textLink);
 }

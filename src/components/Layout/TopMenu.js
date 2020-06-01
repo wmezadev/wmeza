@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import './TopMenu.css';
 import { formatMessage } from 'utils/i18n';
 import { useLang } from 'context/LanguageContext';
-/* import LanguageBar from './LanguageBar'; */
+import LanguageBar from './LanguageBar';
 import ReadModeToggle from './ReadModeToggle';
 
 const TopMenu = () => {
@@ -36,11 +36,9 @@ const TopMenu = () => {
             <li>
               <Link to="#">Contact</Link>
             </li>
-            {/* <li>
-              <Link to="#">
-                <LanguageBar />
-              </Link>
-            </li> */}
+            <li>
+              <LanguageBar />
+            </li>
             <li>
               <ReadModeToggle />
             </li>
