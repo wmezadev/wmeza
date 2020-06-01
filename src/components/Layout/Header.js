@@ -10,9 +10,9 @@ import TopMenu from './TopMenu';
 /**
  * base MUST include slash (eg: en/)
  *
- * @param {*object} { location, title, base}
+ * @param {*object} { title, base}
  */
-function Header({ location, title, base }) {
+function Header({ title, base }) {
   const elHeader = React.useRef();
 
   const [headerSticky, setHeaderSticky] = React.useState(false);
@@ -71,7 +71,6 @@ function Header({ location, title, base }) {
 }
 
 Header.propTypes = {
-  location: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   title: PropTypes.string,
   base: PropTypes.string,
 };

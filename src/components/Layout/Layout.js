@@ -21,10 +21,9 @@ function Layout({ children, location, title, breadcrumbs }) {
         background: 'var(--bg)',
         transition: 'color 0.2s ease-out, background 0.2s ease-out',
         minHeight: '100vh',
-        fontFamily: 'var(--systemFont)',
       }}
     >
-      <Header base={homeLink} location={location} title={title} />
+      <Header base={homeLink} title={title} />
       <Breadcrumbs
         base={homeLink}
         langKey={lang}

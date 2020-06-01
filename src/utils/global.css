@@ -39,6 +39,15 @@ body.dark {
   --breadcrumbsTextColorActive: #eeeeee;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 a {
   box-shadow: none;
 }
@@ -223,6 +232,7 @@ pre[data-line] {
   opacity: 1;
   -webkit-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
+  text-decoration: none;
 }
 
 .button-primary {

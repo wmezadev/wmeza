@@ -118,7 +118,7 @@ module.exports = {
       options: {
         langKeyDefault: lang,
         useLangKeyLayout: false,
-        pagesPaths: ['/content/pages'],
+        pagesPaths: ['/content/pages', '/src/pages'],
       },
     },
   ],

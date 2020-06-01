@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import './TopMenu.css';
-import LanguageBar from './LanguageBar';
+import { useLang } from 'context/LanguageContext';
+/* import LanguageBar from './LanguageBar'; */
 import ReadModeToggle from './ReadModeToggle';
 
 const TopMenu = () => {
+  const { homeLink } = useLang();
+
   const [menu, setMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -21,7 +24,7 @@ const TopMenu = () => {
         <nav className={`main-nav ${menu ? 'is-open' : ''}`} id="main-nav">
           <ul>
             <li>
-              <Link to="#">About me</Link>
+              <Link to={`${homeLink}/about-me`}>About me</Link>
             </li>
             <li>
               <Link to="#">Portfolio</Link>
@@ -32,11 +35,11 @@ const TopMenu = () => {
             <li>
               <Link to="#">Contact</Link>
             </li>
-            {/* 
-            <li>
-              <Link to="#"><LanguageBar /></Link>
-            </li> 
-            */}
+            {/* <li>
+              <Link to="#">
+                <LanguageBar />
+              </Link>
+            </li> */}
             <li>
               <ReadModeToggle />
             </li>

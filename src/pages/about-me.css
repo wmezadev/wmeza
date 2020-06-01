@@ -1,0 +1,10 @@
+.banner-about {
+  background: rgb(37, 37, 37);
+  padding: 40px 0px;
+  color: white;
+}
+
+.banner-about h1 {
+  font-family: 'Bebas Neue';
+  font-size: 4rem;
+}
