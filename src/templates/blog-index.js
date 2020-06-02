@@ -25,7 +25,7 @@ function BlogIndex({ data, location }) {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={formatMessage('tIndTitle')} keywords={formatMessage('taIndKeywords')} />
-      <section style={{ marginBottom: '5rem' }} className="banner">
+      <section className="banner">
         <div className="content-margin">
           <div className="banner-inner">
             <div>
@@ -47,7 +47,7 @@ function BlogIndex({ data, location }) {
                   borderRadius: '50%',
                 }}
               />
-              <h4>Email Newsletter</h4>
+              <h2>Newsletter</h2>
               <p>Get an update when something new comes out by signing up below!</p>
               <Link to="#!" className="button button-primary button-transparent">
                 Subscribe
@@ -56,42 +56,44 @@ function BlogIndex({ data, location }) {
           </div>
         </div>
       </section>
-      <div className="content-margin">
-        <h4>{formatMessage('tLatestPosts')}</h4>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          return (
-            <PostAbbrev
-              lang={lang}
-              base={homeLink}
-              key={node.fields.slug}
-              slug={node.fields.slug}
-              date={node.frontmatter.date}
-              timeToRead={node.timeToRead}
-              title={title}
-              excerpt={node.frontmatter.description || node.excerpt}
-              tags={node.frontmatter.tags}
-            />
-          );
-        })}
-        <h4>{formatMessage('tPortfolio')}</h4>
-        {projects.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          return (
-            <PostAbbrev
-              lang={lang}
-              base={homeLink}
-              key={node.fields.slug}
-              slug={node.fields.slug}
-              date={node.frontmatter.date}
-              timeToRead={node.timeToRead}
-              title={title}
-              excerpt={node.frontmatter.description || node.excerpt}
-              tags={node.frontmatter.tags}
-            />
-          );
-        })}
-      </div>
+      <section className="background-grey">
+        <div className="content-margin">
+          <h2>{formatMessage('tLatestPosts')}</h2>
+          {posts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug;
+            return (
+              <PostAbbrev
+                lang={lang}
+                base={homeLink}
+                key={node.fields.slug}
+                slug={node.fields.slug}
+                date={node.frontmatter.date}
+                timeToRead={node.timeToRead}
+                title={title}
+                excerpt={node.frontmatter.description || node.excerpt}
+                tags={node.frontmatter.tags}
+              />
+            );
+          })}
+          <h2>{formatMessage('tPortfolio')}</h2>
+          {projects.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug;
+            return (
+              <PostAbbrev
+                lang={lang}
+                base={homeLink}
+                key={node.fields.slug}
+                slug={node.fields.slug}
+                date={node.frontmatter.date}
+                timeToRead={node.timeToRead}
+                title={title}
+                excerpt={node.frontmatter.description || node.excerpt}
+                tags={node.frontmatter.tags}
+              />
+            );
+          })}
+        </div>
+      </section>
     </Layout>
   );
 }

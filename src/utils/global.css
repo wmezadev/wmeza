@@ -7,6 +7,7 @@ body {
 
 body.light {
   --bg: #ffffff;
+  --sBG: #f0f0f0;
   --header: var(--blue);
   --textNormal: #222;
   --textTitle: #222;
@@ -14,8 +15,8 @@ body.light {
   --hr: hsla(0, 0%, 0%, 0.2);
   --inlineCode-bg: rgba(255, 229, 100, 0.2);
   --inlineCode-text: #1a1a1a;
-  --tag-bg: #f7a046;
-  --tag-color: #ffffff;
+  --tag-bg: #343434;
+  --tag-color: #35d8ff;
   --breadcrumbsTextColor: #a1c4e9;
   --breadcrumbsTextColorActive: #888888;
   --linkBackground: rgba(187, 239, 253, 0.3);
@@ -23,26 +24,29 @@ body.light {
   --bannerBackground: #252525;
   --bannerText: #ffffff;
   --btnBorderColor: #000000;
+  --postAbbrevBackground: #fff;
 }
 
 body.dark {
   -webkit-font-smoothing: antialiased;
 
   --bg: #252525;
+  --sBG: var(--bg);
   --header: #ffffff;
-  --textNormal: rgba(255, 255, 255, 0.88);
+  --textNormal: rgba(255, 255, 255, 0.945);
   --textTitle: #ffffff;
   --textLink: var(--blue);
   --hr: hsla(0, 0%, 100%, 0.2);
   --inlineCode-bg: hsl(222, 14%, 25%);
   --inlineCode-text: #e6e6e6;
-  --tag-bg: rgb(143, 91, 35);
-  --tag-color: #dddddd;
+  --tag-bg: #35d8ff;
+  --tag-color: #343434;
   --breadcrumbsTextColor: #d1c4e9;
   --breadcrumbsTextColorActive: #eeeeee;
   --bannerBackground: #663399;
   --bannerText: #ffffff;
   --btnBorderColor: #ffffff;
+  --postAbbrevBackground: #343434;
 }
 
 h1,

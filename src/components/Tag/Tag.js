@@ -5,20 +5,20 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'gatsby';
 
-function Tag({ url, text, count, ...restProps }) {
+function Tag({ url, text, count }) {
   let countPart;
   if (count != null) {
     countPart = `  (${count})`;
   }
   return (
-    <div className="round" {...restProps}>
+    <>
       <Link className="link" to={url}>
         <span className="text">
-          {text}
+          #{text}
           {countPart}
         </span>
       </Link>
-    </div>
+    </>
   );
 }
 

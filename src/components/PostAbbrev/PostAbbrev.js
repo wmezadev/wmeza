@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Link } from 'gatsby';
+import { Link, Image } from 'gatsby';
 
-import { rhythm } from 'utils/typography';
-import { formatReadingTime } from 'utils/helpers';
+import './PostAbbrev.css';
+
+import { formatReadingTime, truncateString } from 'utils/helpers';
 import { formatDate } from 'utils/i18n';
 
 import TagList from '../TagList';
@@ -15,7 +16,7 @@ function PostAbbrev({ slug, title, date, timeToRead, excerpt, tags, base }) {
     excerptPart = (
       <p
         dangerouslySetInnerHTML={{
-          __html: excerpt,
+          __html: truncateString(excerpt, 114),
         }}
       />
     );
@@ -23,29 +24,24 @@ function PostAbbrev({ slug, title, date, timeToRead, excerpt, tags, base }) {
 
   let tagsPart;
   if (tags) {
-    tagsPart = (
-      <TagList style={{ margin: '0.5rem 0 -0.5rem -0.5rem' }} tags={tags} baseUrl={`${base}tags`} />
-    );
+    tagsPart = <TagList tags={tags} baseUrl={`${base}tags`} />;
   }
 
   return (
-    <article>
-      <header>
-        <h3
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            fontSize: rhythm(1),
-            marginBottom: rhythm(1 / 4),
-          }}
-        >
-          <Link style={{ boxShadow: 'none' }} to={slug} rel="bookmark">
+    <article className="post-abbrev">
+      <Link style={{ boxShadow: 'none', margin: '0 0 -8px 0' }} to={slug} rel="bookmark">
+        <img src="https://via.placeholder.com/300x190.png" alt="placeholder" />
+      </Link>
+      <div className="post-abbrev-content">
+        <h3>
+          <Link to={slug} rel="bookmark">
             {title}
           </Link>
         </h3>
         {tagsPart}
         <small>{`${formatDate(date)} • ${formatReadingTime(timeToRead)}`}</small>
         {excerptPart}
-      </header>
+      </div>
     </article>
   );
 }

@@ -60,10 +60,18 @@ function kebabCase(s) {
     .toLowerCase();
 }
 
+const truncateString = (str, num) => {
+  // If the length of str is less than or equal to num
+  // just return str--don't truncate it.
+  // else Return str truncated with '...' concatenated to the end of str.
+  return str.length <= num ? str : `${str.slice(0, num)}...`;
+};
+
 module.exports = {
   formatReadingTime,
   formatPostDate,
   haveSameItem,
   getPreviousNextNode,
   kebabCase,
+  truncateString,
 };
