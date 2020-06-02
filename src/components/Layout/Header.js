@@ -6,6 +6,7 @@ import Image from 'gatsby-image';
 import { Link, StaticQuery, graphql } from 'gatsby';
 
 import TopMenu from './TopMenu';
+import './Header.css';
 
 /**
  * base MUST include slash (eg: en/)
@@ -14,26 +15,26 @@ import TopMenu from './TopMenu';
  */
 function Header({ title, base }) {
   const elHeader = React.useRef();
-
   const [headerSticky, setHeaderSticky] = React.useState(false);
 
   React.useEffect(() => {
-    const sticky = elHeader.current.offsetTop;
+    const sticky = elHeader.current.offsetHeight;
 
     const stickyMenu = () => {
-      console.log('pageYOffset', window.pageYOffset);
-      console.log('pageYOffset', sticky);
-      if (window.pageYOffset > sticky) {
-        setHeaderSticky(true);
-      } else {
-        setHeaderSticky(false);
-      }
+      setHeaderSticky(window.pageYOffset > sticky);
     };
 
     window.onscroll = () => {
       stickyMenu();
     };
   }, [elHeader]);
+
+  const innerDiv = (child) => {
+    if (headerSticky) {
+      return <div className="inner-menu">{child}</div>;
+    }
+    return <>{child}</>;
+  };
 
   return (
     <header
@@ -47,25 +48,29 @@ function Header({ title, base }) {
       className={headerSticky ? 'sticky-menu' : ''}
       ref={elHeader}
     >
-      <StaticQuery
-        // eslint-disable-next-line no-use-before-define
-        query={headerQuery}
-        render={(data) => {
-          return (
-            <Link
-              style={{
-                boxShadow: 'none',
-                textDecoration: 'none',
-                color: 'var(--textTitle)',
-              }}
-              to={base}
-            >
-              <Image fixed={data.logo.childImageSharp.fixed} alt={`logo ${title}`} />
-            </Link>
-          );
-        }}
-      />
-      <TopMenu />
+      {innerDiv(
+        <>
+          <StaticQuery
+            // eslint-disable-next-line no-use-before-define
+            query={headerQuery}
+            render={(data) => {
+              return (
+                <Link
+                  style={{
+                    boxShadow: 'none',
+                    textDecoration: 'none',
+                    color: 'var(--textTitle)',
+                  }}
+                  to={base}
+                >
+                  <Image fixed={data.logo.childImageSharp.fixed} alt={`logo ${title}`} />
+                </Link>
+              );
+            }}
+          />
+          <TopMenu />
+        </>,
+      )}
     </header>
   );
 }

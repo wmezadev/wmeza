@@ -1,0 +1,15 @@
+.sticky-menu {
+  position: fixed;
+  max-width: none !important;
+  width: 100%;
+  background: var(--bg);
+  z-index: 100;
+}
+
+.inner-menu {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
