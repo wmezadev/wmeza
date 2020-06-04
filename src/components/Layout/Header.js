@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Image from 'gatsby-image';
 
 import { Link, StaticQuery, graphql } from 'gatsby';
+import withThemeFlag from '../../utils/withThemeFlag';
 
 import TopMenu from './TopMenu';
 import './Header.css';
@@ -13,7 +14,7 @@ import './Header.css';
  *
  * @param {*object} { title, base}
  */
-function Header({ title, base }) {
+function Header({ title, base, isLightTheme }) {
   const elHeader = React.useRef();
   const [headerSticky, setHeaderSticky] = React.useState(false);
 
@@ -63,7 +64,14 @@ function Header({ title, base }) {
                   }}
                   to={base}
                 >
-                  <Image fixed={data.logo.childImageSharp.fixed} alt={`logo ${title}`} />
+                  <Image
+                    fixed={
+                      isLightTheme
+                        ? data.logo.childImageSharp.fixed
+                        : data.logoDark.childImageSharp.fixed
+                    }
+                    alt={`logo ${title}`}
+                  />
                 </Link>
               );
             }}
@@ -78,16 +86,25 @@ function Header({ title, base }) {
 Header.propTypes = {
   title: PropTypes.string,
   base: PropTypes.string,
+  isLightTheme: PropTypes.bool,
 };
 
 Header.defaultProps = {
   title: null,
   base: '',
+  isLightTheme: true,
 };
 
 const headerQuery = graphql`
   query headerQuery {
     logo: file(absolutePath: { regex: "/wmeza-logo.png/" }) {
+      childImageSharp {
+        fixed(width: 180) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    logoDark: file(absolutePath: { regex: "/wmeza-logo-white.png/" }) {
       childImageSharp {
         fixed(width: 180) {
           ...GatsbyImageSharpFixed
@@ -103,4 +120,4 @@ const headerQuery = graphql`
   }
 `;
 
-export default Header;
+export default withThemeFlag(Header);
