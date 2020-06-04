@@ -4,6 +4,7 @@ date: "2019-08-14T20:33:45-05:00"
 description: This is a step by step to configure Laravel storage from version 5, to use AWS S3 driver.
 disqus: false
 tags: ['aws', 'devops', 'laravel']
+image: './joshua-coleman-ZVkDLrXGMdw-unsplash.jpg'
 ---
 
 This is a step by step to configure Laravel storage from version 5, to use AWS S3 driver.

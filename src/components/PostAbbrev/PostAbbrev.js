@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Link, Image } from 'gatsby';
-
+import { Link } from 'gatsby';
+import Image from 'gatsby-image';
 import './PostAbbrev.css';
 
 import { formatReadingTime, truncateString } from 'utils/helpers';
@@ -10,7 +10,7 @@ import { formatDate } from 'utils/i18n';
 
 import TagList from '../TagList';
 
-function PostAbbrev({ slug, title, date, timeToRead, excerpt, tags, base }) {
+function PostAbbrev({ slug, title, date, timeToRead, excerpt, tags, base, image }) {
   let excerptPart;
   if (excerpt) {
     excerptPart = (
@@ -28,21 +28,27 @@ function PostAbbrev({ slug, title, date, timeToRead, excerpt, tags, base }) {
   }
 
   return (
-    <article className="post-abbrev">
-      <Link style={{ boxShadow: 'none', margin: '0 0 -8px 0' }} to={slug} rel="bookmark">
-        <img src="https://via.placeholder.com/300x190.png" alt="placeholder" />
-      </Link>
-      <div className="post-abbrev-content">
-        <h3>
-          <Link to={slug} rel="bookmark">
-            {title}
-          </Link>
-        </h3>
-        {tagsPart}
-        <small>{`${formatDate(date)} • ${formatReadingTime(timeToRead)}`}</small>
-        {excerptPart}
-      </div>
-    </article>
+    <div className="post-container">
+      <article className="post-abbrev">
+        <Link to={slug} rel="bookmark">
+          {image ? (
+            <Image fixed={image.childImageSharp.fixed} alt={`feature image for ${title}`} />
+          ) : (
+            <Image fixed="https://via.placeholder.com/300x200.jpg" />
+          )}
+        </Link>
+        <div className="post-abbrev-content">
+          <h3>
+            <Link to={slug} rel="bookmark">
+              {title}
+            </Link>
+          </h3>
+          {tagsPart}
+          <small>{`${formatDate(date)} • ${formatReadingTime(timeToRead)}`}</small>
+          {excerptPart}
+        </div>
+      </article>
+    </div>
   );
 }
 
@@ -54,6 +60,7 @@ PostAbbrev.propTypes = {
   excerpt: PropTypes.string,
   tags: PropTypes.array,
   base: PropTypes.string,
+  image: PropTypes.object,
 };
 
 PostAbbrev.defaultProps = {
@@ -61,6 +68,7 @@ PostAbbrev.defaultProps = {
   excerpt: null,
   tags: null,
   base: '',
+  image: null,
 };
 
 export default PostAbbrev;

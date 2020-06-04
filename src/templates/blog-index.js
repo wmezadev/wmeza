@@ -59,22 +59,26 @@ function BlogIndex({ data, location }) {
       <section className="background-grey">
         <div className="content-margin">
           <h2>{formatMessage('tLatestPosts')}</h2>
-          {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug;
-            return (
-              <PostAbbrev
-                lang={lang}
-                base={homeLink}
-                key={node.fields.slug}
-                slug={node.fields.slug}
-                date={node.frontmatter.date}
-                timeToRead={node.timeToRead}
-                title={title}
-                excerpt={node.frontmatter.description || node.excerpt}
-                tags={node.frontmatter.tags}
-              />
-            );
-          })}
+          <div className="row">
+            {posts.map(({ node }) => {
+              const title = node.frontmatter.title || node.fields.slug;
+              return (
+                <PostAbbrev
+                  lang={lang}
+                  base={homeLink}
+                  key={node.fields.slug}
+                  slug={node.fields.slug}
+                  date={node.frontmatter.date}
+                  timeToRead={node.timeToRead}
+                  title={title}
+                  excerpt={node.frontmatter.description || node.excerpt}
+                  tags={node.frontmatter.tags}
+                  image={node.frontmatter.image}
+                />
+              );
+            })}
+          </div>
+          <br />
           <h2>{formatMessage('tPortfolio')}</h2>
           {projects.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug;
@@ -145,6 +149,13 @@ export const pageQuery = graphql`
             title
             description
             tags
+            image {
+              childImageSharp {
+                fixed(height: 200, width: 300) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
           }
         }
       }

@@ -14,10 +14,18 @@ import { formatReadingTime } from 'utils/helpers';
 import { formatDate } from 'utils/i18n';
 import { rhythm, scale } from 'utils/typography';
 import { useLang } from 'context/LanguageContext';
+import Image from 'gatsby-image';
 
 function BlogPostTemplate({ data, pageContext, location }) {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
+  const postImage = () => {
+    return post.frontmatter.image ? (
+      <>
+        <Image fluid={post.frontmatter.image.childImageSharp.fluid} /> <br />
+      </>
+    ) : null;
+  };
   const { previous, next, previousInSameTag, nextInSameTag, translationsLink } = pageContext;
 
   const { lang, homeLink } = useLang();
@@ -53,6 +61,8 @@ function BlogPostTemplate({ data, pageContext, location }) {
           langKey={lang}
           style={{ margin: '-0.5rem 0 1.5rem' }}
         />
+
+        {postImage()}
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
@@ -129,6 +139,14 @@ export const pageQuery = graphql`
         description
         tags
         disqus
+        image {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluidLimitPresentationSize
+            }
+          }
+        }
       }
       fields {
         langKey

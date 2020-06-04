@@ -4,6 +4,7 @@ date: "2018-08-04T18:34:26-05:00"
 description: Did you know that you can close an issue in a commit? Good commits are well documented and allow you to understand the chronology of the project at a glance and thus facilitate the search. This is why GitHub allows us to manage issues within the message of the commit.
 tags: ['git', 'github', 'devops']
 disqus: false
+image: './julius-drost-C8wlYF8ubBo-unsplash.jpg'
 ---
 
 ![ejemplo de github-issues](./github-issues-1024x653.png)

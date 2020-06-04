@@ -1,3 +1,7 @@
+.post-container {
+  margin: 2rem 0;
+}
+
 .post-abbrev {
   display: flex;
   margin: auto;
@@ -35,4 +39,12 @@
 
 .post-abbrev-content p {
   margin: 0;
+}
+
+@media (min-width: 768px) {
+  .post-abbrev {
+    flex-direction: row;
+    width: unset;
+    height: 200px;
+  }
 }
