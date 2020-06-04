@@ -1,7 +1,5 @@
 import React from 'react';
 import './Footer.css';
-import linkedin from '../../../content/assets/icons/linkedin.svg';
-import twitter from '../../../content/assets/icons/twitter.svg';
 
 function Footer() {
   return (
