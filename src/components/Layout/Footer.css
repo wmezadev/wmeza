@@ -17,6 +17,12 @@ footer ul {
   justify-content: space-between;
 }
 
+footer svg {
+  fill: var(--textNormal);
+  width: 30px;
+  height: 30px;
+}
+
 @media (min-width: 481px) {
   footer {
     flex-direction: row;
