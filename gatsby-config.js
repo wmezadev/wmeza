@@ -121,5 +121,13 @@ module.exports = {
         pagesPaths: ['/content/pages', '/src/pages'],
       },
     },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint:
+          'https://gmail.us20.list-manage.com/subscribe/post?u=4a158433423ccd84ebee3c5aa&amp;id=1fe4deffbf',
+        timeout: 3500,
+      },
+    },
   ],
 };
