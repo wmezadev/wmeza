@@ -34,7 +34,7 @@ const TopMenu = () => {
               <Link to="#">Blog</Link>
             </li>
             <li>
-              <Link to="#">Contact</Link>
+              <Link to={`${homeLink}/contact`}>Contact</Link>
             </li>
             <li>
               <LanguageBar />

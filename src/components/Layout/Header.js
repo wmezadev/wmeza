@@ -19,10 +19,8 @@ function Header({ title, base, isLightTheme }) {
   const [headerSticky, setHeaderSticky] = React.useState(false);
 
   React.useEffect(() => {
-    const sticky = elHeader.current.offsetHeight;
-
     const stickyMenu = () => {
-      setHeaderSticky(window.pageYOffset > sticky);
+      setHeaderSticky(window.pageYOffset);
     };
 
     window.onscroll = () => {
