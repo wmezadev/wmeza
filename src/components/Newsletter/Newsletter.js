@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
+import ReCAPTCHA from 'react-google-recaptcha';
 import './Newsletter.css';
 import Spinner from '../Spinner';
 
 function Newsletter() {
+  const recaptchaRef = React.createRef();
   const [email, setEmail] = useState('');
   const [state, setState] = useState({
     result: '',
@@ -50,6 +52,9 @@ function Newsletter() {
       ...state,
       loading: true,
     });
+    if (recaptchaRef.current) {
+      recaptchaRef.current.execute();
+    }
     addToMailchimp(email) // listFields are optional if you are only capturing the email address.
       .then((data) => {
         // I recommend setting data to React state
@@ -98,6 +103,11 @@ function Newsletter() {
               disabled={state.loading}
             >
               {state.loading ? <Spinner /> : 'Subscribe'}
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                size="invisible"
+                sitekey="6Lc7nwAVAAAAAJl0UNwUIGpoJMIIH0mLPe2utY6M"
+              />
             </button>
           </div>
           {alertResult()}

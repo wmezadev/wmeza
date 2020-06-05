@@ -10,4 +10,5 @@ module.exports = {
   tLatestPosts: 'Últimas entradas',
   tPortfolio: 'Portafolio',
   tMenuAboutMe: 'Acerca de mi',
+  tBannerTitleHome: 'Hola, soy william',
 };

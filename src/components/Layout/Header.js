@@ -18,15 +18,16 @@ function Header({ title, base, isLightTheme }) {
   const elHeader = React.useRef();
   const [headerSticky, setHeaderSticky] = React.useState(false);
 
-  React.useEffect(() => {
-    const stickyMenu = () => {
-      setHeaderSticky(window.pageYOffset);
-    };
+  const stickyMenu = () => {
+    setHeaderSticky(window.pageYOffset > 20);
+  };
 
-    window.onscroll = () => {
-      stickyMenu();
+  React.useEffect(() => {
+    window.addEventListener('scroll', stickyMenu);
+    return () => {
+      window.removeEventListener('scroll', stickyMenu);
     };
-  }, [elHeader]);
+  });
 
   const innerDiv = (child) => {
     if (headerSticky) {
