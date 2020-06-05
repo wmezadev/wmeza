@@ -52,7 +52,7 @@
     left: 0;
     bottom: 0;
     text-align: center;
-    background: #fff;
+    background: var(--sBG);
     opacity: 0;
     z-index: 10000;
     visibility: hidden;
@@ -73,7 +73,7 @@
     bottom: 0;
     left: 0;
     right: -15px;
-    background: #35d8ff;
+    background: var(--ctaBackground);
     transform-origin: 0 0;
     transform: skew(0deg) translateX(-120%);
     transition: all 0.275s 0.1s;
