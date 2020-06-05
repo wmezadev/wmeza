@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import './TopMenu.css';
 import { formatMessage } from 'utils/i18n';
@@ -14,6 +14,15 @@ const TopMenu = () => {
   const toggleMenu = () => {
     setMenu(!menu);
   };
+
+  useEffect(() => {
+    if (menu) {
+      document.documentElement.style.overflow = 'hidden';
+    }
+    return () => {
+      document.documentElement.style.overflow = 'unset';
+    };
+  });
 
   return (
     <>

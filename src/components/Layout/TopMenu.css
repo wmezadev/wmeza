@@ -46,7 +46,7 @@
 @media (max-width: 767px) {
   /* Main menu positionning */
   .main-nav {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
@@ -54,7 +54,7 @@
     text-align: center;
     background: #fff;
     opacity: 0;
-    z-index: -1;
+    z-index: 10000;
     visibility: hidden;
     transition: all 0.375s;
   }
@@ -68,19 +68,19 @@
   /* Yellow band effect */
   .main-nav::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: -15px;
     background: #35d8ff;
     transform-origin: 0 0;
-    transform: skew(-14deg) translateX(-120%);
+    transform: skew(0deg) translateX(-120%);
     transition: all 0.275s 0.1s;
   }
 
   .main-nav.is-open::before {
-    transform: skew(-14deg) translateX(0);
+    transform: skew(0deg) translateX(0);
   }
 
   /* Skewing effect on menu links */
@@ -90,14 +90,14 @@
     height: 93%; /* Should be 100%, but we have a notice message :D */
     align-items: flex-end;
     justify-content: center;
-    transform: translateX(-18%) skew(-16deg);
+    transform: translateX(-18%) skew(0deg);
   }
 
   .main-nav li {
     display: block;
     margin: 0.5rem 0;
     text-align: right;
-    transform: skew(16deg);
+    transform: skew(0deg);
   }
 
   /* Apparition effect on links */
@@ -157,8 +157,8 @@
     width: 28px;
     height: 4px;
     margin: 0 auto;
-    background: #000000;
-    transform: skew(5deg);
+    background: var(--textNormal);
+    transform: skew(0deg);
     transition: all 0.275s;
   }
 
@@ -167,7 +167,7 @@
     content: '';
     display: block;
     height: 100%;
-    background: #000000;
+    background: var(--textNormal);
     transition: all 0.275s;
   }
 
@@ -203,6 +203,6 @@
     text-transform: uppercase;
     font-weight: 500;
     text-align: center;
-    color: #000000;
+    color: var(--textNormal);
   }
 }

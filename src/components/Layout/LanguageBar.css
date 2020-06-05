@@ -1,5 +1,6 @@
 .lang-link {
   display: flex;
+  align-items: center;
 }
 
 .lang-link svg {
@@ -8,4 +9,10 @@
 
 .lang-link:hover svg {
   fill: var(--textLink);
+}
+
+@media (max-width: 767px) {
+  .lang-link svg {
+    transition: all 275ms 375ms;
+  }
 }
