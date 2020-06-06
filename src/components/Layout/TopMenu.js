@@ -33,16 +33,16 @@ const TopMenu = () => {
         <nav className={`main-nav ${menu ? 'is-open' : ''}`} id="main-nav">
           <ul>
             <li>
-              <Link to={`${homeLink}/about-me`}>{formatMessage('tMenuAboutMe')}</Link>
+              <Link to={`${homeLink}about-me`}>{formatMessage('tMenuAboutMe')}</Link>
             </li>
             <li>
-              <Link to="#">{formatMessage('tPortfolio')}</Link>
+              <Link to={`${homeLink}portfolio`}>{formatMessage('tPortfolio')}</Link>
             </li>
             <li>
-              <Link to="#">Blog</Link>
+              <Link to="/">Blog</Link>
             </li>
             <li>
-              <Link to={`${homeLink}/contact`}>{formatMessage('tMenuContact')}</Link>
+              <Link to={`${homeLink}contact`}>{formatMessage('tMenuContact')}</Link>
             </li>
             <li>
               <LanguageBar />

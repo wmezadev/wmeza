@@ -11,13 +11,8 @@ import Image from 'gatsby-image';
 
 function BlogIndex({ data, location }) {
   const siteTitle = data.site.siteMetadata.title;
-  const posts = data.allMarkdownRemark.edges.filter(
-    ({ node }) => node.fields.subFolder.sourceInstanceName === 'blog',
-  );
-
-  const projects = data.allMarkdownRemark.edges.filter(
-    ({ node }) => node.fields.subFolder.sourceInstanceName === 'portfolio',
-  );
+  const posts = data.posts.edges;
+  const projects = data.projects.edges;
 
   const { lang, homeLink } = useLang();
 
@@ -47,7 +42,7 @@ function BlogIndex({ data, location }) {
               <h2>{formatMessage('tNewsletter')}</h2>
               <p>{formatMessage('tBannerNewsletter')}</p>
               <Link
-                to={`${homeLink}/contact#newsletter`}
+                to={`${homeLink}contact#newsletter`}
                 className="button button-primary button-transparent"
               >
                 {formatMessage('tNewsletterBtn')}
@@ -127,12 +122,13 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(
+    posts: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      limit: 1000
-      filter: { fields: { langKey: { eq: $langKey } } }
+      limit: 3
+      filter: {
+        fields: { langKey: { eq: $langKey }, subFolder: { sourceInstanceName: { eq: "blog" } } }
+      }
     ) {
-      totalCount
       edges {
         node {
           excerpt
@@ -140,9 +136,6 @@ export const pageQuery = graphql`
           fields {
             slug
             langKey
-            subFolder {
-              sourceInstanceName
-            }
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
@@ -156,6 +149,32 @@ export const pageQuery = graphql`
                 }
               }
             }
+          }
+        }
+      }
+    }
+    projects: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 3
+      filter: {
+        fields: {
+          langKey: { eq: $langKey }
+          subFolder: { sourceInstanceName: { eq: "portfolio" } }
+        }
+      }
+    ) {
+      edges {
+        node {
+          excerpt
+          timeToRead
+          fields {
+            slug
+            langKey
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
           }
         }
       }

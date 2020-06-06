@@ -203,6 +203,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 
   return new Promise((resolve, reject) => {
     pageMaker.createBlogIndex();
+    pageMaker.createPortfolioIndex();
 
     resolve(
       graphql(

@@ -37,7 +37,7 @@ function LanguageBar({ lang: langKey }) {
 
         return (
           <>
-            <Link to={currentLang[0] !== 'en' ? currentLang[0] : ''} className="lang-link">
+            <Link to={currentLang[0] !== 'en' ? `/${currentLang[0]}` : '/'} className="lang-link">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

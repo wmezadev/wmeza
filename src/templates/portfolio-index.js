@@ -11,7 +11,7 @@ import { formatMessage } from 'utils/i18n';
 
 function PorfolioIndex({ data, location }) {
   const siteTitle = data.site.siteMetadata.title;
-  const posts = data.allMarkdownRemark.edges;
+  const projects = data.allMarkdownRemark.edges;
 
   const { lang, homeLink } = useLang();
 
@@ -23,7 +23,7 @@ function PorfolioIndex({ data, location }) {
           <Bio />
         </aside>
         <h4>{formatMessage('tfIndCountPosts', data.allMarkdownRemark.totalCount)}</h4>
-        {posts.map(({ node }) => {
+        {projects.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (
             <PostAbbrev
@@ -57,11 +57,19 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        author
+        description
       }
     }
     allMarkdownRemark(
-      filter: { fields: { langKey: { eq: $langKey } } }
       sort: { fields: [frontmatter___date], order: DESC }
+      limit: 1000
+      filter: {
+        fields: {
+          langKey: { eq: $langKey }
+          subFolder: { sourceInstanceName: { eq: "portfolio" } }
+        }
+      }
     ) {
       totalCount
       edges {
@@ -76,6 +84,14 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
+            image {
+              childImageSharp {
+                fixed(height: 200, width: 300) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
           }
         }
       }
