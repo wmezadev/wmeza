@@ -29,7 +29,6 @@ const TopMenu = () => {
       <div className="container-nav">
         <button type="button" id="burger" onClick={toggleMenu} className="open-main-nav">
           <span className="burger" />
-          <span className="burger-text">Menu</span>
         </button>
         <nav className={`main-nav ${menu ? 'is-open' : ''}`} id="main-nav">
           <ul>

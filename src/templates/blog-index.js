@@ -30,7 +30,7 @@ function BlogIndex({ data, location }) {
             <div>
               <h1 className="banner-title">{formatMessage('tBannerTitleHome')}</h1>
               <p className="banner-subtitle">
-                I develop projects for the web. The challenges are my passion
+                {formatMessage('tBannerTitleHomeDesc')}
                 <span role="img" aria-label="Fire">
                   🔥
                 </span>
@@ -44,13 +44,13 @@ function BlogIndex({ data, location }) {
                   borderRadius: '50%',
                 }}
               />
-              <h2>Newsletter</h2>
-              <p>Get an update when something new comes out by signing up below!</p>
+              <h2>{formatMessage('tNewsletter')}</h2>
+              <p>{formatMessage('tBannerNewsletter')}</p>
               <Link
                 to={`${homeLink}/contact#newsletter`}
                 className="button button-primary button-transparent"
               >
-                Subscribe
+                {formatMessage('tNewsletterBtn')}
               </Link>
             </div>
           </div>
