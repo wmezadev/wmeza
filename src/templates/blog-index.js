@@ -5,6 +5,7 @@ import './blog-index.css';
 import Layout from 'components/Layout';
 import SEO from 'components/SEO';
 import PostAbbrev from 'components/PostAbbrev';
+import ProjectAbbrev from 'components/ProjectAbbrev';
 import { useLang } from 'context/LanguageContext';
 import { formatMessage } from 'utils/i18n';
 import Image from 'gatsby-image';
@@ -78,7 +79,7 @@ function BlogIndex({ data, location }) {
           {projects.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug;
             return (
-              <PostAbbrev
+              <ProjectAbbrev
                 lang={lang}
                 base={homeLink}
                 key={node.fields.slug}
@@ -88,6 +89,7 @@ function BlogIndex({ data, location }) {
                 title={title}
                 excerpt={node.frontmatter.description || node.excerpt}
                 tags={node.frontmatter.tags}
+                image={node.frontmatter.image}
               />
             );
           })}
@@ -175,6 +177,13 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            image {
+              childImageSharp {
+                fixed(height: 200, width: 300) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
           }
         }
       }

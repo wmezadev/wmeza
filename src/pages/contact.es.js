@@ -20,36 +20,34 @@ function Contact({ data, location }) {
           hablar conmigo.
         </p>
         <p>Puedes encontrarme en la web como:</p>
-        <p>
-          <ul style={{ marginLeft: '1.5rem' }}>
-            <li>
-              LinkedIn:{' '}
-              <a
-                href="https://linkedin.com/in/william-meza/"
-                rel="noopener noreferrer nofollow "
-                target="_blank"
-              >
-                william-meza
-              </a>
-            </li>
-            <li>
-              Github:{' '}
-              <a href="https://github.com/" rel="noopener noreferrer nofollow " target="_blank">
-                wemf
-              </a>
-            </li>
-            <li>
-              Instagram:{' '}
-              <a
-                href="https://www.instagram.com/williammeza/"
-                rel="noopener noreferrer nofollow "
-                target="_blank"
-              >
-                @williammeza
-              </a>
-            </li>
-          </ul>
-        </p>
+        <ul style={{ marginLeft: '1.5rem' }}>
+          <li>
+            LinkedIn:{' '}
+            <a
+              href="https://linkedin.com/in/william-meza/"
+              rel="noopener noreferrer nofollow "
+              target="_blank"
+            >
+              william-meza
+            </a>
+          </li>
+          <li>
+            Github:{' '}
+            <a href="https://github.com/" rel="noopener noreferrer nofollow " target="_blank">
+              wemf
+            </a>
+          </li>
+          <li>
+            Instagram:{' '}
+            <a
+              href="https://www.instagram.com/williammeza/"
+              rel="noopener noreferrer nofollow "
+              target="_blank"
+            >
+              @williammeza
+            </a>
+          </li>
+        </ul>
       </div>
       <Newsletter />
     </Layout>
