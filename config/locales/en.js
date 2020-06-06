@@ -13,6 +13,7 @@ module.exports = {
   tLatestPosts: 'Latest posts',
   tPortfolio: 'Portfolio',
   tMenuAboutMe: 'About me',
+  tMenuContact: 'Contact',
   tBannerTitleHome: "Hi, I'm william!",
   tNewsletter: 'Newsletter',
   tNewsletterSucces: 'Thanks for subscribing!',

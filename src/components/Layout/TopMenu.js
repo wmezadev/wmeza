@@ -37,13 +37,13 @@ const TopMenu = () => {
               <Link to={`${homeLink}/about-me`}>{formatMessage('tMenuAboutMe')}</Link>
             </li>
             <li>
-              <Link to="#">Portfolio</Link>
+              <Link to="#">{formatMessage('tPortfolio')}</Link>
             </li>
             <li>
               <Link to="#">Blog</Link>
             </li>
             <li>
-              <Link to={`${homeLink}/contact`}>Contact</Link>
+              <Link to={`${homeLink}/contact`}>{formatMessage('tMenuContact')}</Link>
             </li>
             <li>
               <LanguageBar />
