@@ -11,4 +11,12 @@ module.exports = {
   tPortfolio: 'Portafolio',
   tMenuAboutMe: 'Acerca de mi',
   tBannerTitleHome: 'Hola, soy william',
+  tNewsletter: 'Boletín',
+  tNewsletterSucces: '¡Gracias por suscribirte!',
+  tNewsletterError: ', tal vez ya estés suscrito',
+  tNewsletterDescription: `Si te gusta mi blog y deseas actualizarte con mis últimos artículos, suscríbete, 
+  Prometo nunca enviarte spam`,
+  tNewsletterDescription2: '. Publicaría al menos 1 publicación por mes.',
+  tNewsletterBtn: 'Suscribirse',
+  tInputEmail: 'Tu correo electrónico',
 };

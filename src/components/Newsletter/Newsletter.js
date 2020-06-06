@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import ReCAPTCHA from 'react-google-recaptcha';
 import './Newsletter.css';
+import { formatMessage } from 'utils/i18n';
 import Spinner from '../Spinner';
 
 function Newsletter() {
@@ -17,7 +18,7 @@ function Newsletter() {
       return (
         <div style={{ marginTop: '1rem' }}>
           <p style={{ fontSize: '1.5rem' }}>
-            <b>Thanks for subscribing!</b>
+            <b>{formatMessage('tNewsletterSucces')}</b>
             <span role="img" aria-label="party popper">
               🎉
             </span>
@@ -34,7 +35,7 @@ function Newsletter() {
               <span role="img" aria-label="confused face">
                 😕
               </span>
-              , maybe you are subscribed already
+              {formatMessage('tNewsletterError')}
             </b>
             <span role="img" aria-label="red exclamation mark">
               ❗️
@@ -59,7 +60,6 @@ function Newsletter() {
       .then((data) => {
         // I recommend setting data to React state
         // but you can do whatever you want (including ignoring this `then()` altogether)
-        console.log(data);
         setState({
           ...state,
           loading: false,
@@ -71,20 +71,19 @@ function Newsletter() {
   return (
     <section className="section-cta">
       <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
-        <h2>Newsletter</h2>
+        <h2>{formatMessage('tNewsletter')}</h2>
         <p>
-          If you like my blog and you want to be updated with my latest articles, please subscribe,
-          I promise never send you spam
+          {formatMessage('tNewsletterDescription')}
           <span role="img" aria-label="prohibited">
             🚫
           </span>
-          . I would publish at least 1 post per month.
+          {formatMessage('tNewsletterDescription2')}
         </p>
         <form id="newsletter" onSubmit={handleSubmit}>
           <div className="subscribe-row">
             <div className="input-container">
               <label htmlFor="email">
-                Your email
+                {formatMessage('tInputEmail')}
                 <input
                   className="text-field"
                   type="email"
@@ -102,7 +101,7 @@ function Newsletter() {
               className="button button-primary button-transparent"
               disabled={state.loading}
             >
-              {state.loading ? <Spinner /> : 'Subscribe'}
+              {state.loading ? <Spinner /> : formatMessage('tNewsletterBtn')}
               <ReCAPTCHA
                 ref={recaptchaRef}
                 size="invisible"

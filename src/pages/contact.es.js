@@ -12,13 +12,14 @@ function Contact({ data, location }) {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Contact - William Meza" />
+      <SEO title="Contacto - William Meza" />
       <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
-        <h1>Contact me</h1>
+        <h1>Contáctame</h1>
         <p>
-          Email me at <b>hello</b> at <b>wmeza</b> dot com if you want to talk with me.
+          Envíame un correo electrónico a <b>hello</b> arroba <b>wmeza</b> punto com si deseas
+          hablar conmigo.
         </p>
-        <p>You can find me on the web like:</p>
+        <p>Puedes encontrarme en la web como:</p>
         <p>
           <ul style={{ marginLeft: '1.5rem' }}>
             <li>
