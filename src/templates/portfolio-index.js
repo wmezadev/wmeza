@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import Bio from 'components/Bio';
 import Layout from 'components/Layout';
 import SEO from 'components/SEO';
-import PostAbbrev from 'components/PostAbbrev';
+import ProjectAbbrev from 'components/ProjectAbbrev';
 import { useLang } from 'context/LanguageContext';
 import { formatMessage } from 'utils/i18n';
+import './portfolio-index.css';
 
 function PorfolioIndex({ data, location }) {
   const siteTitle = data.site.siteMetadata.title;
@@ -18,27 +18,49 @@ function PorfolioIndex({ data, location }) {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={formatMessage('tIndTitle')} keywords={formatMessage('taIndKeywords')} />
-      <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
-        <aside>
-          <Bio />
-        </aside>
-        <h4>{formatMessage('tfIndCountPosts', data.allMarkdownRemark.totalCount)}</h4>
-        {projects.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          return (
-            <PostAbbrev
-              lang={lang}
-              base={homeLink}
-              key={node.fields.slug}
-              slug={node.fields.slug}
-              date={node.frontmatter.date}
-              timeToRead={node.timeToRead}
-              title={title}
-              excerpt={node.frontmatter.description || node.excerpt}
-            />
-          );
-        })}
-      </div>
+      <section className="banner-portfolio">
+        <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+          <h1>{formatMessage('tPortfolio')}</h1>
+        </div>
+      </section>
+      <section className="background-grey">
+        <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+          <h2>{formatMessage('tFreelancerProjects')}</h2>
+          {projects.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug;
+            return (
+              <ProjectAbbrev
+                lang={lang}
+                base={homeLink}
+                key={node.fields.slug}
+                slug={node.fields.slug}
+                date={node.frontmatter.date}
+                title={title}
+                excerpt={node.frontmatter.description || node.excerpt}
+                tags={node.frontmatter.tags}
+                image={node.frontmatter.image}
+              />
+            );
+          })}
+          <h2>{formatMessage('tOpenSourceProjects')}</h2>
+          {projects.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug;
+            return (
+              <ProjectAbbrev
+                lang={lang}
+                base={homeLink}
+                key={node.fields.slug}
+                slug={node.fields.slug}
+                date={node.frontmatter.date}
+                title={title}
+                excerpt={node.frontmatter.description || node.excerpt}
+                tags={node.frontmatter.tags}
+                image={node.frontmatter.image}
+              />
+            );
+          })}
+        </div>
+      </section>
     </Layout>
   );
 }

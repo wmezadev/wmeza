@@ -13,7 +13,7 @@ import { formatDate } from 'utils/i18n';
 import { rhythm, scale } from 'utils/typography';
 import { useLang } from 'context/LanguageContext';
 
-function BlogPostTemplate({ data, pageContext, location }) {
+function PortfolioProjectTemplate({ data, pageContext, location }) {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next, previousInSameTag, nextInSameTag, translationsLink } = pageContext;
@@ -87,13 +87,13 @@ function BlogPostTemplate({ data, pageContext, location }) {
   );
 }
 
-BlogPostTemplate.propTypes = {
+PortfolioProjectTemplate.propTypes = {
   data: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 };
 
-export default BlogPostTemplate;
+export default PortfolioProjectTemplate;
 
 export const pageQuery = graphql`
   query PortfolioProjectBySlug($slug: String!) {

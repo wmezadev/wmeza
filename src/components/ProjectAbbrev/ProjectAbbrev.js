@@ -5,10 +5,10 @@ import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 import './ProjectAbbrev.css';
 
-import { formatReadingTime, truncateString } from 'utils/helpers';
+import { truncateString } from 'utils/helpers';
 import { formatDate } from 'utils/i18n';
 
-function ProjectAbbrev({ slug, title, date, timeToRead, excerpt, image }) {
+function ProjectAbbrev({ slug, title, date, excerpt, image }) {
   let excerptPart;
   if (excerpt) {
     excerptPart = (
@@ -23,12 +23,8 @@ function ProjectAbbrev({ slug, title, date, timeToRead, excerpt, image }) {
   return (
     <div className="project-container">
       <article className="project-abbrev">
-        <Link to={slug} rel="bookmark">
-          {image ? (
-            <Image fixed={image.childImageSharp.fixed} alt={`feature image for ${title}`} />
-          ) : (
-            <Image fixed="https://via.placeholder.com/300x200.jpg" />
-          )}
+        <Link to={slug} rel="bookmark" style={{ fontSize: '0' }}>
+          <Image fixed={image.childImageSharp.fixed} alt={`feature image for ${title}`} />
         </Link>
         <div className="project-abbrev-content">
           <h3>
@@ -36,7 +32,7 @@ function ProjectAbbrev({ slug, title, date, timeToRead, excerpt, image }) {
               {title}
             </Link>
           </h3>
-          <small>{`${formatDate(date)} • ${formatReadingTime(timeToRead)}`}</small>
+          <small>{formatDate(date)}</small>
           {excerptPart}
         </div>
       </article>
@@ -48,7 +44,6 @@ ProjectAbbrev.propTypes = {
   slug: PropTypes.string.isRequired,
   title: PropTypes.string,
   date: PropTypes.string.isRequired,
-  timeToRead: PropTypes.number.isRequired,
   excerpt: PropTypes.string,
   image: PropTypes.object,
 };

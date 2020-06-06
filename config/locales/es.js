@@ -22,4 +22,6 @@ module.exports = {
   tNewsletterDescription2: '. Publicaría al menos 1 publicación por mes.',
   tNewsletterBtn: 'Suscribirse',
   tInputEmail: 'Tu correo electrónico',
+  tOpenSourceProjects: 'Proyectos código abierto',
+  tFreelancerProjects: 'Proyectos en Freelancer',
 };

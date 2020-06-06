@@ -30,12 +30,8 @@ function PostAbbrev({ slug, title, date, timeToRead, excerpt, tags, base, image 
   return (
     <div className="post-container">
       <article className="post-abbrev">
-        <Link to={slug} rel="bookmark">
-          {image ? (
-            <Image fixed={image.childImageSharp.fixed} alt={`feature image for ${title}`} />
-          ) : (
-            <Image fixed="https://via.placeholder.com/300x200.jpg" />
-          )}
+        <Link to={slug} rel="bookmark" style={{ fontSize: '0' }}>
+          <Image fixed={image.childImageSharp.fixed} alt={`feature image for ${title}`} />
         </Link>
         <div className="post-abbrev-content">
           <h3>

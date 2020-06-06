@@ -1,0 +1,10 @@
+.banner-portfolio {
+  background: var(--bannerBackground);
+  padding: 40px 0px;
+  color: var(--bannerText);
+}
+
+.banner-portfolio h1 {
+  font-family: 'Bebas Neue';
+  font-size: 4rem;
+}

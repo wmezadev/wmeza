@@ -85,7 +85,6 @@ function BlogIndex({ data, location }) {
                 key={node.fields.slug}
                 slug={node.fields.slug}
                 date={node.frontmatter.date}
-                timeToRead={node.timeToRead}
                 title={title}
                 excerpt={node.frontmatter.description || node.excerpt}
                 tags={node.frontmatter.tags}
