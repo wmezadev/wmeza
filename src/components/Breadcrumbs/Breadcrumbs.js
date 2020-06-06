@@ -23,7 +23,7 @@ function Breadcrumbs({ data, showTop, base, langKey, ...restProps }) {
 
   return (
     <ul
-      style={{ maxWidth: '900px', margin: 'auto' }}
+      style={{ maxWidth: '1100px', margin: 'auto' }}
       className="breadcrumbs breadcrumbs-ul"
       {...restProps}
     >

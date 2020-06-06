@@ -35,7 +35,7 @@ const TagsPage = ({
 
   return (
     <Layout location={location} title={title} breadcrumbs={[{ text: tTags }]}>
-      <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+      <div style={{ maxWidth: '1100px', margin: 'auto', padding: '0 20px' }}>
         <aside>
           <Bio />
         </aside>

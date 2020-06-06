@@ -14,11 +14,11 @@ function AboutMe({ data, location }) {
     <Layout location={location} title={siteTitle}>
       <SEO title="Acerca de mi - William Meza" />
       <section className="banner-about">
-        <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+        <div style={{ maxWidth: '1100px', margin: 'auto', padding: '0 20px' }}>
           <h1>Acerca de mi</h1>
         </div>
       </section>
-      <div style={{ maxWidth: '900px', margin: 'auto', padding: '40px 20px' }}>
+      <div style={{ maxWidth: '1100px', margin: 'auto', padding: '40px 20px' }}>
         <p>
           My name is William. I am a web developer and writer on my own blog. I currently work in
           arkiteck as a Full Stack Software Developer.

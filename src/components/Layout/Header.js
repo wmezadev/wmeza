@@ -42,7 +42,7 @@ function Header({ title, base, isLightTheme }) {
         display: 'flex',
         justifyContent: 'space-between',
         padding: '30px 20px',
-        maxWidth: '900px',
+        maxWidth: '1100px',
         margin: 'auto',
       }}
       className={headerSticky ? 'sticky-menu' : ''}

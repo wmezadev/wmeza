@@ -23,9 +23,6 @@ function ProjectAbbrev({ slug, title, date, excerpt, image }) {
   return (
     <div className="project-container">
       <article className="project-abbrev">
-        <Link to={slug} rel="bookmark" style={{ fontSize: '0' }}>
-          <Image fixed={image.childImageSharp.fixed} alt={`feature image for ${title}`} />
-        </Link>
         <div className="project-abbrev-content">
           <h3>
             <Link to={slug} rel="bookmark">

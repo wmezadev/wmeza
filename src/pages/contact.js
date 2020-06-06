@@ -13,7 +13,7 @@ function Contact({ data, location }) {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Contact - William Meza" />
-      <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+      <div style={{ maxWidth: '1100px', margin: 'auto', padding: '0 20px' }}>
         <h1>Contact me</h1>
         <p>
           Email me at <b>hello</b> at <b>wmeza</b> dot com if you want to talk with me.

@@ -70,7 +70,7 @@ function Newsletter() {
 
   return (
     <section className="section-cta">
-      <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+      <div style={{ maxWidth: '1100px', margin: 'auto', padding: '0 20px' }}>
         <h2>{formatMessage('tNewsletter')}</h2>
         <p>
           {formatMessage('tNewsletterDescription')}

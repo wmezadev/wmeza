@@ -37,7 +37,7 @@ function BlogPostTemplate({ data, pageContext, location }) {
 
   return (
     <Layout location={location} title={siteTitle} breadcrumbs={[{ text: post.frontmatter.title }]}>
-      <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+      <div style={{ maxWidth: '1100px', margin: 'auto', padding: '0 20px' }}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}

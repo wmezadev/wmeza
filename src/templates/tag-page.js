@@ -28,7 +28,7 @@ const TagPageTemplate = ({ pageContext, data, location }) => {
       breadcrumbs={[{ text: formatMessage('tTags'), url: `${homeLink}tags` }, { text: tag }]}
     >
       <SEO title={tagHeader} description={tagHeader} />
-      <div style={{ maxWidth: '900px', margin: 'auto', padding: '0 20px' }}>
+      <div style={{ maxWidth: '1100px', margin: 'auto', padding: '0 20px' }}>
         <h1>{tagHeader}</h1>
         <main>
           {edges.map(({ node }) => {
