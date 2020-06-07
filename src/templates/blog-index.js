@@ -94,6 +94,8 @@ function BlogIndex({ data, location }) {
                 tags={node.frontmatter.tags}
                 image={node.frontmatter.image}
                 stack={node.frontmatter.stack}
+                source={node.frontmatter.source}
+                production={node.frontmatter.production}
               />
             );
           })}
@@ -160,8 +162,8 @@ export const pageQuery = graphql`
       }
     }
     projects: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 3
+      sort: { fields: [frontmatter___date], order: ASC }
+      limit: 6
       filter: {
         fields: {
           langKey: { eq: $langKey }
@@ -182,6 +184,8 @@ export const pageQuery = graphql`
             title
             description
             stack
+            source
+            production
             image {
               childImageSharp {
                 fixed(height: 200, width: 300) {

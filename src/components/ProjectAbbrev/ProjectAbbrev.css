@@ -7,6 +7,7 @@
 .project-abbrev-content {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 0.5rem;
   font-size: 16px;
   background: var(--sBG);
@@ -49,6 +50,16 @@
   font-size: 0.65rem;
 }
 
+.project-links {
+  display: flex;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  justify-content: flex-end;
+}
+
+.btn-project {
+  margin-left: 1rem;
+}
+
 @media (min-width: 768px) {
   .project-container {
     margin: 2rem 0;
@@ -56,7 +67,7 @@
   .project-abbrev {
     flex-direction: row;
     width: 100%;
-    min-height: 240px;
+    min-height: 300px;
   }
   .project-abbrev-content {
     width: 100%;

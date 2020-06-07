@@ -41,6 +41,8 @@ function PorfolioIndex({ data, location }) {
                   excerpt={node.frontmatter.description || node.excerpt}
                   stack={node.frontmatter.stack}
                   image={node.frontmatter.image}
+                  source={node.frontmatter.source}
+                  production={node.frontmatter.production}
                 />
               );
             })}
@@ -60,6 +62,8 @@ function PorfolioIndex({ data, location }) {
                   excerpt={node.frontmatter.description || node.excerpt}
                   stack={node.frontmatter.stack}
                   image={node.frontmatter.image}
+                  source={node.frontmatter.source}
+                  production={node.frontmatter.production}
                 />
               );
             })}
