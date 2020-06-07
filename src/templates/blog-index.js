@@ -75,7 +75,11 @@ function BlogIndex({ data, location }) {
             })}
           </div>
           <br />
-          <h2>{formatMessage('tPortfolio')}</h2>
+        </div>
+      </section>
+      <div className="content-margin">
+        <h2>{formatMessage('tPortfolio')}</h2>
+        <div className="projects-grid">
           {projects.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug;
             return (
@@ -89,11 +93,12 @@ function BlogIndex({ data, location }) {
                 excerpt={node.frontmatter.description || node.excerpt}
                 tags={node.frontmatter.tags}
                 image={node.frontmatter.image}
+                stack={node.frontmatter.stack}
               />
             );
           })}
         </div>
-      </section>
+      </div>
     </Layout>
   );
 }
@@ -176,6 +181,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            stack
             image {
               childImageSharp {
                 fixed(height: 200, width: 300) {

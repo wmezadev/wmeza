@@ -24,7 +24,7 @@ function PorfolioIndex({ data, location }) {
           <h1>{formatMessage('tPortfolio')}</h1>
         </div>
       </section>
-      <section className="background-grey">
+      <section>
         <div style={{ maxWidth: '1100px', margin: 'auto', padding: '0 20px' }}>
           <h2>{formatMessage('tFreelancerProjects')}</h2>
           <div className="projects-grid">

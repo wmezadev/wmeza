@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Link } from 'gatsby';
-import Image from 'gatsby-image';
 import './ProjectAbbrev.css';
 
 import { truncateString } from 'utils/helpers';
 import { formatDate } from 'utils/i18n';
 
-function ProjectAbbrev({ slug, title, date, excerpt, image }) {
+function ProjectAbbrev({ slug, title, date, excerpt, stack }) {
   let excerptPart;
   if (excerpt) {
     excerptPart = (
@@ -31,6 +30,14 @@ function ProjectAbbrev({ slug, title, date, excerpt, image }) {
           </h3>
           <small>{formatDate(date)}</small>
           {excerptPart}
+          <ul className="tech-stack">
+            {stack.map((item, key) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <li className="tech-stack-item" key={key}>
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </article>
     </div>
@@ -42,13 +49,12 @@ ProjectAbbrev.propTypes = {
   title: PropTypes.string,
   date: PropTypes.string.isRequired,
   excerpt: PropTypes.string,
-  image: PropTypes.object,
+  stack: PropTypes.array.isRequired,
 };
 
 ProjectAbbrev.defaultProps = {
   title: null,
   excerpt: null,
-  image: null,
 };
 
 export default ProjectAbbrev;

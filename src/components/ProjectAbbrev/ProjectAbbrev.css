@@ -1,7 +1,3 @@
-.project-container {
-  margin: 2rem 0;
-}
-
 .project-abbrev {
   display: flex;
   margin: auto;
@@ -13,7 +9,7 @@
   flex-direction: column;
   padding: 0.5rem;
   font-size: 16px;
-  background: var(--postAbbrevBackground);
+  background: var(--sBG);
   margin: 0;
   border-bottom: solid 4px var(--textNormal);
 }
@@ -39,10 +35,28 @@
   margin: 0;
 }
 
+.tech-stack {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.tech-stack-item {
+  margin: 2px 4px 2px 0;
+  padding: 2px;
+  border: 2px solid;
+  font-size: 0.65rem;
+}
+
 @media (min-width: 768px) {
+  .project-container {
+    margin: 2rem 0;
+  }
   .project-abbrev {
     flex-direction: row;
     width: 100%;
+    min-height: 240px;
   }
   .project-abbrev-content {
     width: 100%;
