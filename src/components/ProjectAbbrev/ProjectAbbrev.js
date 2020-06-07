@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Link } from 'gatsby';
+/* import { Link } from 'gatsby'; */
 import './ProjectAbbrev.css';
 
 import { truncateString } from 'utils/helpers';
 import { formatDate } from 'utils/i18n';
 
-function ProjectAbbrev({ slug, title, date, excerpt, stack, source, production }) {
+function ProjectAbbrev({ /* slug, */ title, date, excerpt, stack, source, production }) {
   let excerptPart;
   if (excerpt) {
     excerptPart = (
@@ -72,7 +72,7 @@ function ProjectAbbrev({ slug, title, date, excerpt, stack, source, production }
 }
 
 ProjectAbbrev.propTypes = {
-  slug: PropTypes.string.isRequired,
+  /* slug: PropTypes.string.isRequired, */
   title: PropTypes.string,
   date: PropTypes.string.isRequired,
   excerpt: PropTypes.string,
