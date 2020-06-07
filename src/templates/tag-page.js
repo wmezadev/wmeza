@@ -42,6 +42,8 @@ const TagPageTemplate = ({ pageContext, data, location }) => {
                 date={node.frontmatter.date}
                 timeToRead={node.timeToRead}
                 title={title}
+                excerpt={node.frontmatter.description || node.excerpt}
+                image={node.frontmatter.image}
               />
             );
           })}
@@ -97,6 +99,7 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
+          excerpt
           timeToRead
           fields {
             slug
@@ -105,6 +108,14 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
+            description
+            image {
+              childImageSharp {
+                fixed(height: 200, width: 300) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
           }
         }
       }

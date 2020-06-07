@@ -62,8 +62,7 @@ As a bonus:
 
 You probably don't have your Laravel project hosted within AWS and you need to enable CORS. For this case you must enter the following values in your bucket:
 
-```
-<pre class="EnlighterJSRAW" data-enlighter-group="" data-enlighter-highlight="" data-enlighter-language="generic" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-theme="" data-enlighter-title=""><?xml version="1.0" encoding="UTF-8"?>
+```xml
 <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
 <CORSRule>
     <AllowedOrigin>*</AllowedOrigin>

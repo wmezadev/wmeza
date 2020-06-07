@@ -8,13 +8,13 @@ import SEO from 'components/SEO';
 import TagList from 'components/TagList';
 import RelativePosts from 'components/RelativePosts';
 import Disqus from 'components/Disqus';
-import TranslationsLink from 'components/TranslationsLink';
 
 import { formatReadingTime } from 'utils/helpers';
 import { formatDate } from 'utils/i18n';
 import { rhythm, scale } from 'utils/typography';
 import { useLang } from 'context/LanguageContext';
 import Image from 'gatsby-image';
+import './blog-post.css';
 
 function BlogPostTemplate({ data, pageContext, location }) {
   const post = data.markdownRemark;
@@ -26,7 +26,7 @@ function BlogPostTemplate({ data, pageContext, location }) {
       </>
     ) : null;
   };
-  const { previous, next, previousInSameTag, nextInSameTag, translationsLink } = pageContext;
+  const { previous, next, previousInSameTag, nextInSameTag /* translationsLink */ } = pageContext;
 
   const { lang, homeLink } = useLang();
 
@@ -36,7 +36,8 @@ function BlogPostTemplate({ data, pageContext, location }) {
   }
 
   return (
-    <Layout location={location} title={siteTitle} breadcrumbs={[{ text: post.frontmatter.title }]}>
+    <Layout location={location} title={siteTitle}>
+      {/* breadcrumbs={[{ text: 'blog', url: `${homeLink}blog` }, { text: post.frontmatter.title }]} */}
       <div style={{ maxWidth: '1100px', margin: 'auto', padding: '0 20px' }}>
         <SEO
           title={post.frontmatter.title}
@@ -54,14 +55,8 @@ function BlogPostTemplate({ data, pageContext, location }) {
           {formatDate(post.frontmatter.date)}
           {` • ${formatReadingTime(post.timeToRead)}`}
         </p>
-
-        {tags}
-        <TranslationsLink
-          translationsLink={translationsLink}
-          langKey={lang}
-          style={{ margin: '-0.5rem 0 1.5rem' }}
-        />
-
+        <div className="post-tags-container">{tags}</div>
+        <br />
         {postImage()}
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />

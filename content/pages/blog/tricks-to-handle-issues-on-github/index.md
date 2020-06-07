@@ -13,14 +13,14 @@ Good commits are well documented and allow you to understand the chronology of t
 
 To mention or **referencing a user** within a commit, just type `@username` (with username we want to mention)
 
-```
-@jhon collaborated in this part.
+```bash
+git commit -m"@jhon collaborated in this part."
 ```
 
 To **mention an issue**, a hashtag is used followed by an id: `#issue_id`
 
-```
-trying to fix issue #33.
+```bash
+git commit -m"trying to fix issue #33."
 ```
 
 Also, **you can close an issue** inside a commit using the keywords:  
@@ -30,26 +30,26 @@ So for example if the commit does not solve the problem but it is decided to clo
 
 In case of being an issue to close:
 
-```
-This Closes #123
+```bash
+git commit -m"This Closes #123"
 ```
 
 If you want to **close an issue from an external repository** we must use this syntaxis: `username/repository#issue_id`, for example:
 
-```
-This Closes example_user/example_repo#76
+```bash
+git commit -m"This Closes example_user/example_repo#76"
 ```
 
 Additionally, you can **close multiples issues** in the same commit (maybe is not good choice for every case)
 
-```
-This closes #34, closes #23, and closes example_user/example_repo#42
+```bash
+git commit -m"This closes #34, closes #23, and closes example_user/example_repo#42"
 ```
 
 Finally,  you can reference **or metion another commit** using the md5 hash id  
 
-```
-e87947412f9b80d1c89e71541f8322a822301245 also works and it's similar to this.
+```bash
+git commit -m"e87947412f9b80d1c89e71541f8322a822301245 also works and it's similar to this."
 ```
 
 BONUS:

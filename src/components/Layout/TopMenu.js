@@ -38,9 +38,9 @@ const TopMenu = () => {
             <li>
               <Link to={`${homeLink}portfolio`}>{formatMessage('tPortfolio')}</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/">Blog</Link>
-            </li>
+            </li> */}
             <li>
               <Link to={`${homeLink}contact`}>{formatMessage('tMenuContact')}</Link>
             </li>

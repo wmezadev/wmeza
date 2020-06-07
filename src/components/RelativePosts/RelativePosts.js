@@ -5,9 +5,14 @@ import { formatMessage } from 'utils/i18n';
 import RelativePost from '../RelativePost';
 
 function RelativePosts({ postNodes, lang }) {
-  const postNodesNotNull = postNodes.filter(x => x);
+  const postNodesNotNull = postNodes.filter((x) => x);
 
   if (postNodesNotNull.length === 0) {
+    return null;
+  }
+  const postNodesSameLang = postNodesNotNull.filter((postNode) => postNode.fields.lang === lang);
+
+  if (postNodesSameLang.length === 0) {
     return null;
   }
 
@@ -15,7 +20,7 @@ function RelativePosts({ postNodes, lang }) {
     <>
       <hr />
       <div style={{ marginTop: '-1rem' }}>{formatMessage('tRelativePosts')}:</div>
-      {postNodesNotNull.map(postNode => (
+      {postNodesSameLang.map((postNode) => (
         <RelativePost lang={lang} key={postNode.fields.slug} postNode={postNode} />
       ))}
     </>
