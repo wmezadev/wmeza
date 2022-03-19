@@ -115,7 +115,7 @@ BlogIndex.defaultProps = {};
 export default BlogIndex;
 
 export const pageQuery = graphql`
-  query($langKey: String!) {
+  query ($langKey: String!) {
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
         fixed(width: 120, height: 120) {

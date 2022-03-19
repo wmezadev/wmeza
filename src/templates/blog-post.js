@@ -22,7 +22,7 @@ function BlogPostTemplate({ data, pageContext, location }) {
   const postImage = () => {
     return post.frontmatter.image ? (
       <>
-        <Image fluid={post.frontmatter.image.childImageSharp.fluid} /> <br />
+        <Image fixed={post.frontmatter.image.childImageSharp.fixed} /> <br />
       </>
     ) : null;
   };
@@ -43,21 +43,23 @@ function BlogPostTemplate({ data, pageContext, location }) {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: `block`,
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
-          }}
-        >
-          {formatDate(post.frontmatter.date)}
-          {` • ${formatReadingTime(post.timeToRead)}`}
-        </p>
-        <div className="post-tags-container">{tags}</div>
-        <br />
-        {postImage()}
+        <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+          {postImage()}
+          <h1>{post.frontmatter.title}</h1>
+          <p
+            style={{
+              ...scale(-1 / 5),
+              display: `block`,
+              marginBottom: rhythm(1),
+              marginTop: rhythm(-1),
+            }}
+          >
+            {formatDate(post.frontmatter.date)}
+            {` • ${formatReadingTime(post.timeToRead)}`}
+          </p>
+          <div className="post-tags-container">{tags}</div>
+          <br />
+        </div>
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
@@ -136,9 +138,8 @@ export const pageQuery = graphql`
         disqus
         image {
           childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid
-              ...GatsbyImageSharpFluidLimitPresentationSize
+            fixed(height: 200, width: 300) {
+              ...GatsbyImageSharpFixed_withWebp
             }
           }
         }
