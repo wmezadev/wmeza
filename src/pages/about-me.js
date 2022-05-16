@@ -91,7 +91,6 @@ function AboutMe({ data, location }) {
           <li>PHP</li>
           <li>Laravel</li>
           <li>NodeJS</li>
-          <li>Python</li>
           <li>WordPress</li>
         </ul>
         <h3>Data</h3>

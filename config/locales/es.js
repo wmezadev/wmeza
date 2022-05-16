@@ -12,7 +12,7 @@ module.exports = {
   tMenuAboutMe: 'Sobre mi',
   tMenuContact: 'Contacto',
   tBannerTitleHome: 'Hola, soy william',
-  tBannerTitleHomeDesc: 'Desarrollo proyectos para la web. Los retos son mi pasion',
+  tBannerTitleHomeDesc: 'Desarrollo proyectos para la web. El código es mi pasion',
   tNewsletter: 'Boletín',
   tBannerNewsletter: 'Obten actualizaciones de mi contenido, sin spam, sin pagar, solo código.',
   tNewsletterSucces: '¡Gracias por suscribirte!',

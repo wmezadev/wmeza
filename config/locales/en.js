@@ -15,7 +15,7 @@ module.exports = {
   tMenuAboutMe: 'About me',
   tMenuContact: 'Contact',
   tBannerTitleHome: "Hi, I'm william!",
-  tBannerTitleHomeDesc: 'I develop projects for the web. The challenges are my passion',
+  tBannerTitleHomeDesc: 'I develop projects for the web. Code is my passion',
   tNewsletter: 'Newsletter',
   tBannerNewsletter: 'Get updates of my content, no spam, no pay, just code.',
   tNewsletterSucces: 'Thanks for subscribing!',

@@ -20,58 +20,59 @@ function AboutMe({ data, location }) {
       </section>
       <div style={{ maxWidth: '1100px', margin: 'auto', padding: '40px 20px' }}>
         <p>
-          My name is William. I am a web developer and writer on my own blog. I currently work in
-          arkiteck as a Full Stack Software Developer.
+          Mi nombre es William. Soy desarrollador web y escritor en mi propio blog. actualmente
+          trabajo en Publicis Groupe como Principal Frontend Engineer.
         </p>
         <p>Outstanding achievements:</p>
         <ul style={{ marginLeft: '1.5rem' }}>
-          <li>dimar.cl/tienda, E-commerce for custom boxes and packging in 3D.</li>
+          <li>dislicores.com, un E-commerce grande desarrollado con VTEX.</li>
+          <li>dimar.cl/tienda, un E-commerce para cajas y empaques personalizados en 3D.</li>
           <li>
-            Sunrise, web application project for content management and customer portfolio for
-            insurance.
+            Sunrise, proyecto de aplicación web para gestión de contenidos y cartera de clientes
+            para seguro.
           </li>
-          <li>segurautos.co, Website for sale of auto and soat insurance.</li>
+          <li>segurautos.co, Sitio web de venta de seguros de auto y soat.</li>
         </ul>
         <p>
-          I started this site as a place to document what I have learned. I want to contribute to
-          the open community of developers that has taught me so much. I do not have publicity or
-          sponsors.
+          Comencé este sitio como un lugar para documentar lo que he aprendido. quiero contribuir a
+          la comunidad abierta de desarrolladores que tanto me ha enseñado. no tengo publicidad ni
+          patrocinadores
         </p>
-        <h2>My passion</h2>
+        <h2>Mi pasión</h2>
         <p>
-          I love to design and code websites{' '}
+          Me encanta diseñar y programar sitios web.{' '}
           <span role="img" aria-label="Computer">
             🖥
           </span>
-          , digital marketing, graphic design, painting{' '}
+          , marketing digital, diseño gráfico, pintura{' '}
           <span role="img" aria-label="Artist palette">
              🎨
           </span>
-          , traveling, cooking{' '}
+          , viajar, cocinar{' '}
           <span role="img" aria-label="Chef">
             👨‍🍳
           </span>
-          , and teaching. I like science fiction movies and books{' '}
+          , y enseñanza me gustan las peliculas y libros de ciencia ficcion{' '}
           <span role="img" aria-label="Books">
             📚
           </span>
-          , old technology{' '}
+          , tecnología antigua{' '}
           <span role="img" aria-label="Radio">
             📻
           </span>
-          , disarm and repair electrical, mechanical and electronic components{' '}
+          , desarmar y reparar componentes eléctricos, mecánicos y electrónicos{' '}
           <span role="img" aria-label="Electric pug">
             🔌
           </span>
-          , I’m big fan of robotics and artificial intelligence{' '}
+          , Soy un gran fan de la robótica y la inteligencia artificial.{' '}
           <span role="img" aria-label="Mechanical arm">
             🦾
           </span>
-          , martial arts{' '}
+          , artes marciales{' '}
           <span role="img" aria-label="martial arts uniform">
             🥋
           </span>{' '}
-          and good football{' '}
+          y buen futbol{' '}
           <span role="img" aria-label="Soccer ball">
             ⚽️
           </span>
@@ -91,7 +92,6 @@ function AboutMe({ data, location }) {
           <li>PHP</li>
           <li>Laravel</li>
           <li>NodeJS</li>
-          <li>Python</li>
           <li>WordPress</li>
         </ul>
         <h3>Data</h3>
@@ -105,45 +105,45 @@ function AboutMe({ data, location }) {
         <h2>Me through time</h2>
         <ul>
           <li>
-            <strong>1993:</strong> I was born in Venezuela on November 14th. With 5 brothers before
-            and 3 after.
+            <strong>1993:</strong> Nací en Venezuela el 14 de noviembre. Con 5 hermanos antes y 3
+            después.
           </li>
           <li>
-            <strong>1999:</strong> My family buys my first PC with Windows XP.
+            <strong>1999:</strong> Mi familia compra mi primera PC con Windows XP.
           </li>
           <li>
-            <strong>Also 1999:</strong> My brother deletes the windows / system32 folder to make
-            more space for new games and I worry how to recover my installed games
+            <strong>Also 1999:</strong> Mi hermano borra la carpeta windows/system32 para hacer mas
+            espacio para juegos nuevos y me preocupa como recuperar mis juegos instalados
           </li>
           <li>
-            <strong>2006:</strong> I disarmed my computer and I managed to arm it again (only one
-            screw left). I start making a living by formatting PCs.
+            <strong>2006:</strong> Desarmé mi computadora y logré armarla nuevamente (solo sobró un
+            tornillo). Comienzo a ganarme la vida formateando PC.
           </li>
           <li>
-            <strong>2011:</strong> My father is left without a systems engineer. I learned php and
-            mysql on YouTube to replace it.
+            <strong>2011:</strong> Mi padre se queda sin ingeniero de sistemas. Aprendí php y mysql
+            en YouTube para reemplazarlo.
           </li>
           <li>
-            <strong>2012:</strong> I joined the UCLA Public University for computer engineering
-            thanks to my high grades.
+            <strong>2012:</strong> Me uní a la Universidad Pública de UCLA para estudiar ingeniería
+            informática. gracias a mis altas calificaciones.
           </li>
           <li>
-            <strong>2015:</strong> I began my service as a missionary in the church of Jesus Christ
-            of Latter-day Saints.
+            <strong>2015:</strong> Comencé mi servicio como misionero en la iglesia de Jesucristo de
+            los Santos de los Últimos Días.
           </li>
           <li>
-            <strong>2017:</strong> I returned from my mission with honor. I got a job as a Web
-            Backend Developer in ONDigital.
+            <strong>2017:</strong> Regresé de mi misión con honor. Conseguí trabajo como Web
+            Desarrollador Backend en ONDigital.
           </li>
           <li>
-            <strong>2018:</strong> I married the love of my life Mayfra Useche{' '}
+            <strong>2018:</strong> Me casé con el amor de mi vida Mayfra Useche{' '}
             <span role="img" aria-label="Heart">
               ♥️
             </span>
             .
           </li>
           <li>
-            <strong>2019:</strong> I was admitted to study in BYU Idaho College in USA.
+            <strong>2019:</strong> Fui admitido para estudiar en BYU Idaho College en EE. UU.
           </li>
         </ul>
       </div>
