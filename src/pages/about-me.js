@@ -21,7 +21,7 @@ function AboutMe({ data, location }) {
       <div style={{ maxWidth: '1100px', margin: 'auto', padding: '40px 20px' }}>
         <p>
           My name is William. I am a web developer and writer on my own blog. I currently work in
-          arkiteck as a Full Stack Software Developer.
+          Publicis Groupe as a Principal Frontend Engineer.
         </p>
         <p>Outstanding achievements:</p>
         <ul style={{ marginLeft: '1.5rem' }}>
